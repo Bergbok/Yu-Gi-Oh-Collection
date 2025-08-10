@@ -1,0 +1,36 @@
+{
+	"name": "yu-gi-oh-card-collection",
+	"version": "1.0.0",
+	"author": {
+		"name": "Bergbok",
+		"url": "https://github.com/Bergbok"
+	},
+	"repository": "github:Bergbok/Yu-Gi-Oh-Collection",
+	"description": "Showcase of my Yu-Gi-Oh! card collection using Astro.",
+	"homepage": "https://github.com/Bergbok/Yu-Gi-Oh-Collection",
+	"license": "GPL-3.0-only",
+	"private": true,
+	"scripts": {
+		"astro": "astro",
+		"build": "astro build",
+		"cf-typegen": "wrangler types",
+		"deploy": "astro build && wrangler deploy",
+		"dev": "astro dev",
+		"prettier": "prettier --write **/*.{json,ts}",
+		"preview": "astro build && wrangler dev"
+	},
+	"devDependencies": {
+		"@fawazahmed0/currency-api": "^2025.8.9",
+		"@types/bun": "^1.2.19",
+		"astro": "^5.12.9",
+		"autoprefixer": "^10.4.21",
+		"cssnano": "^7.1.0",
+		"csv-parse": "^6.1.0",
+		"currency-symbol-map": "^5.1.0",
+		"currency.js": "^2.0.4",
+		"postcss-nested": "^7.0.2",
+		"prettier": "^3.6.2",
+		"typescript": "^5.9.2",
+		"wrangler": "^4.28.1"
+	}
+}
