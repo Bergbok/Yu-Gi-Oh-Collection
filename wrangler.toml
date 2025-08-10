@@ -1,0 +1,16 @@
+name = 'yu-gi-oh'
+compatibility_date = '2025-08-10'
+workers_dev = false
+preview_urls = false
+routes = [
+	{ pattern = 'yugioh.bergbok.party', custom_domain = true },
+	{ pattern = 'buymycardspls.bergbok.party', custom_domain = true }
+]
+
+[assets]
+directory = './dist'
+html_handling = 'drop-trailing-slash'
+not_found_handling = 'single-page-application'
+
+[observability]
+enabled = true
