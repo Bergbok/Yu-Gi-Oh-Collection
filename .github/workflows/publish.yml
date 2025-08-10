@@ -1,0 +1,66 @@
+name: Build and deploy
+
+on:
+  push:
+    branches: [main]
+    paths: [package.json, bun.lock, wrangler.toml, astro.config.ts, .github/workflows/publish.yml, public/**, src/**]
+  workflow_dispatch:
+
+concurrency:
+  group: dist
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+
+      - name: Install Bun
+        uses: oven-sh/setup-bun@v2.0.2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: |
+          bun install --frozen-lockfile
+          bun update @fawazahmed0/currency-api
+
+      - name: Run build
+        run: bun run build
+
+      - name: Upload dist folder
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: dist
+          path: dist
+  deploy:
+      runs-on: ubuntu-latest
+      permissions:
+        contents: read
+        deployments: write
+      needs: build
+      steps:
+        - name: Checkout Wrangler config
+          uses: actions/checkout@v4.2.2
+          with:
+            sparse-checkout: wrangler.toml
+            sparse-checkout-cone-mode: false
+
+        - name: Download dist artifact
+          uses: actions/download-artifact@v4.3.0
+          with:
+            name: dist
+            path: dist
+
+        - name: Deploy
+          uses: cloudflare/wrangler-action@v3.14.1
+          with:
+            accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+            apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+            gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+            wranglerVersion: latest
+            command: deploy
