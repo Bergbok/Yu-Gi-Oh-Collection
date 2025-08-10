@@ -1,0 +1,31 @@
+---
+import Card from './Card.astro';
+import { getCollection } from 'astro:content';
+
+const cards = await getCollection('cards');
+const sortedCards = [...cards].sort((a, b) => a.data.name.localeCompare(b.data.name));
+---
+
+<div id='card-grid'>
+	{sortedCards.map((card, index) => (
+		<Card
+			card={card.data}
+			isAboveFold={index < 14}
+		/>
+	))}
+</div>
+
+<style>
+#card-grid {
+	display: grid;
+	gap: 2rem;
+	grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+}
+
+@media (max-width: 48rem) {
+	#card-grid {
+		gap: 1rem;
+		grid-template-columns: repeat(auto-fill, minmax(9.375rem, 1fr));
+	}
+}
+</style>

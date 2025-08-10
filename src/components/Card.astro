@@ -1,0 +1,280 @@
+---
+import CardImage from './CardImage.astro';
+import type { Card as YuGiOhCard } from '../types/yugioh';
+
+interface Props {
+	card: YuGiOhCard;
+	isAboveFold?: boolean;
+}
+
+const { card, isAboveFold = false } = Astro.props;
+const cardRarity = card.card_sets.find(set => set.set_code === card.card_number)?.set_rarity;
+
+const prices = [
+	card.card_prices[0].amazon_price,
+	card.card_prices[0].cardmarket_price,
+	card.card_prices[0].coolstuffinc_price,
+	card.card_prices[0].tcgplayer_price
+].filter(price => price > 0);
+
+let filteredPrices = prices.filter(price => {
+	const otherPrices = prices.filter(p => p !== price);
+	const sumOfOthers = otherPrices.reduce((sum, p) => sum + p, 0);
+	return price <= sumOfOthers;
+});
+
+if (filteredPrices.length === 0) filteredPrices = [Math.min(...prices)];
+
+const averagePrice = filteredPrices.reduce((sum, price) => sum + price, 0) / filteredPrices.length;
+---
+
+<div class='card' title={card.name} data-card-number={card.card_number} data-edition={card.edition} data-count={card.count} data-cardmarket-price={card.card_prices[0].cardmarket_price} data-tcgplayer-price={card.card_prices[0].tcgplayer_price} data-ebay-price={card.card_prices[0].ebay_price} data-amazon-price={card.card_prices[0].amazon_price} data-coolstuffinc-price={card.card_prices[0].coolstuffinc_price} data-average-price={averagePrice}>
+	<div class='title-overlay'>
+		<div class='attribute' title={card.attribute || (card.frameType === 'spell' ? 'SPELL' : 'TRAP')}></div>
+		{card.level && <div class='level' title={'Level ' + card.level.toString()}></div>}
+		{(card.frameType === 'spell' || card.frameType === 'trap') && <div class='type' title={card.humanReadableCardType}></div>}
+		{card.typeline && <div class='typeline' title={'[' + card.typeline.join('/') + ']'}></div>}
+		<div class='desc' title={card.desc}></div>
+		{card.atk !== undefined && <div class='atk' title={'ATK/ ' + card.atk.toString()}></div>}
+		{card.def !== undefined && <div class='def' title={'DEF/ ' + card.def.toString()}></div>}
+	</div>
+
+	{cardRarity &&
+		<div class='rarity-overlay' data-rarity={cardRarity}>
+			<div class='card-name-region'></div>
+			{['Ghost Rare', 'Gold Secret Rare', 'Super Rare', 'Ultimate Rare', 'Ultra Rare'].includes(cardRarity) && <div class='card-art-region'></div>}
+		</div>
+	}
+
+	<CardImage
+		alt={card.name}
+		loading={isAboveFold ? 'eager' : 'lazy'}
+		password={Number(card.id)}
+		type='full'
+	/>
+</div>
+
+<script>
+import currency from 'currency.js';
+import getSymbolFromCurrency from 'currency-symbol-map';
+import exchangeRateJSON from '@fawazahmed0/currency-api/v1/currencies/usd.json';
+import type { ExchangeRates } from '../types/exchange-rate';
+
+function updateOverlayPrices(overlay: HTMLElement, cardElement: HTMLElement) {
+	const currencySelect = document.getElementById('currency-select') as unknown as HTMLSelectElement;
+	const selectedCurrency = currencySelect?.value?.toLowerCase() || 'usd';
+
+	let exchangeRates: ExchangeRates;
+	try {
+		const storedRates = localStorage.getItem('exchangeRates');
+		exchangeRates = storedRates ? JSON.parse(storedRates) : exchangeRateJSON;
+	} catch (e) {
+		exchangeRates = exchangeRateJSON;
+	}
+
+	const prices = {
+		'Amazon': parseFloat(cardElement.dataset.amazonPrice || '0'),
+		'Cardmarket': parseFloat(cardElement.dataset.cardmarketPrice || '0'),
+		'CoolStuffInc': parseFloat(cardElement.dataset.coolstuffincPrice || '0'),
+		'eBay': parseFloat(cardElement.dataset.ebayPrice || '0'),
+		'TCGplayer': parseFloat(cardElement.dataset.tcgplayerPrice || '0')
+	};
+
+	Object.entries(prices).forEach(([sourceName, usdPrice]) => {
+		const priceHeaders = overlay.querySelectorAll('.price-header');
+		const targetHeader = Array.from(priceHeaders).find(header => header.textContent?.trim() === sourceName);
+
+		if (targetHeader && usdPrice > 0) {
+			const priceElement = targetHeader.parentElement?.querySelector('.price-data');
+
+			if (priceElement) {
+				let displayPrice: string;
+
+				if (selectedCurrency === 'usd') {
+					displayPrice = currency(usdPrice).format();
+				} else {
+					const rate = exchangeRates?.usd?.[selectedCurrency] || 1;
+					const convertedValue = currency(usdPrice).multiply(rate).value;
+
+					const formattedCurrency = new Intl.NumberFormat(navigator.language, {
+						currency: selectedCurrency,
+						currencyDisplay: 'code',
+						style: 'currency'
+					}).format(convertedValue).replace(new RegExp(`${selectedCurrency.toUpperCase()}\\s+`, 'i'), '');
+
+					const symbol = getSymbolFromCurrency(selectedCurrency.toUpperCase()) || selectedCurrency.toUpperCase();
+					displayPrice = `${symbol} ${formattedCurrency}`;
+				}
+
+				priceElement.textContent = displayPrice;
+			}
+		}
+	});
+}
+
+document.querySelectorAll('.card').forEach((el) => {
+	const cardElement = el as HTMLElement;
+	cardElement.addEventListener('click', () => {
+		const overlay = document.querySelector(`.card-overlay[data-card-number="${cardElement.dataset.cardNumber}"]`) as HTMLElement;
+
+		// Update overlay prices before showing
+		updateOverlayPrices(overlay, cardElement);
+
+		overlay.querySelector('button')?.focus();
+		cardElement.classList.add('glowing');
+		cardElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+		overlay.style.display = 'flex';
+	});
+});
+</script>
+
+<style>
+.card {
+	background-image: url('/placeholder.avif');
+	background-position: center;
+	background-size: cover;
+	border-radius: 10px;
+	box-shadow: 0 2px 5px #0000001A;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+	transition: transform 0.2s, box-shadow 0.2s;
+
+	&.glowing {
+		box-shadow: 0 0 20px 5px #FFFFFFB3;
+	}
+
+	&:hover {
+		box-shadow: 0 5px 15px #00000033;
+		cursor: pointer;
+		transform: translateY(-5px);
+	}
+
+	& .title-overlay {
+		height: 100%;
+		left: 0;
+		pointer-events: none;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 10;
+
+		& > div {
+			pointer-events: auto;
+			position: absolute;
+		}
+
+		& .attribute {
+			height: 8%;
+			right: 4%;
+			top: 3.5%;
+			width: 13%;
+		}
+
+		& .level, .type {
+			height: 5%;
+			top: 12%;
+			width: 100%;
+		}
+
+		& .typeline {
+			bottom: 21%;
+			height: 5%;
+			left: 0;
+			width: 50%;
+			z-index: 20;
+		}
+
+		& .desc {
+			bottom: 9%;
+			height: 17%;
+			width: 100%;
+		}
+
+		& .atk {
+			bottom: 5%;
+			height: 5%;
+			left: 50%;
+			width: 25%;
+		}
+
+		& .def {
+			bottom: 5%;
+			height: 5%;
+			right: 0;
+			width: 25%;
+		}
+	}
+
+	/*
+	More complex rarity overlays would be cool
+	https://github.com/jialiang/ygo-ocg-secret-rare
+	https://github.com/simeydotme/pokemon-cards-css
+	*/
+	/*
+	&:not(:has(.rarity-overlay[data-rarity='Gold Secret Rare'])) {
+		display: none;
+	}
+	*/
+	& .rarity-overlay {
+		height: 100%;
+		left: 0;
+		pointer-events: none;
+		position: absolute;
+		top: 0;
+		width: 100%;
+
+		& .card-art-region {
+			height: 54.1%;
+			left: 10.5%;
+			position: absolute;
+			top: 17.36%;
+			width: 79.5%;
+		}
+
+		& .card-name-region {
+			height: 5.5%;
+			left: 6%;
+			position: absolute;
+			top: 5%;
+			width: 77%;
+		}
+
+		/* Holofoil */
+		&[data-rarity='Super Rare'],
+		&[data-rarity='Ultra Rare'] {}
+
+		&[data-rarity='Starfoil Rare'] {}
+
+		&[data-rarity='Gold Secret Rare'] {
+			/*
+			&::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				border: solid gold;
+				border-width: calc(21rem * 0.05) calc(21rem * 0.0475);
+				border-radius: 10px;
+				pointer-events: none;
+			}
+
+			& .card-art-region {
+				border: 0.55rem solid gold;
+				box-sizing: border-box;
+			}
+			*/
+		}
+
+		&[data-rarity='Ghost Rare'] {
+			& .card-art-region {
+				backdrop-filter: invert(100%) grayscale(95%) brightness(80%);
+			}
+		}
+	}
+}
+</style>

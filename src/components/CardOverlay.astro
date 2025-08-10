@@ -1,0 +1,609 @@
+---
+import CloseIcon from '../assets/x.svg';
+import CardImage from './CardImage.astro';
+import DarkIcon from '../assets/cardimages/icons/DARK.svg';
+import FireIcon from '../assets/cardimages/icons/FIRE.svg';
+import RightChevronIcon from '../assets/chevron-right.svg';
+import TrapIcon from '../assets/cardimages/icons/TRAP.svg';
+import WindIcon from '../assets/cardimages/icons/WIND.svg';
+import EarthIcon from '../assets/cardimages/icons/EARTH.svg';
+import EquipIcon from '../assets/cardimages/icons/Equip.svg';
+import FieldIcon from '../assets/cardimages/icons/Field.svg';
+import LightIcon from '../assets/cardimages/icons/LIGHT.svg';
+import SpellIcon from '../assets/cardimages/icons/SPELL.svg';
+import WaterIcon from '../assets/cardimages/icons/WATER.svg';
+import LevelIcon from '../assets/cardimages/icons/level.avif';
+import DivineIcon from '../assets/cardimages/icons/DIVINE.svg';
+import RitualIcon from '../assets/cardimages/icons/Ritual.svg';
+import QuickPlayIcon from '../assets/cardimages/icons/Quick-Play.svg';
+import ContiniousIcon from '../assets/cardimages/icons/Continuous.svg';
+import { Picture } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import type { Card as YuGiOhCard } from '../types/yugioh';
+
+const cardSets = await getCollection('cardsets');
+const { card } = Astro.props as { card: YuGiOhCard };
+---
+
+<div class='card-overlay' data-card-number={card.card_number}>
+	<div class=`card-area ${card.frameType}`>
+		<div class='column-1'>
+			<CardImage
+				alt={card.name}
+				password={Number(card.id)}
+				type='cropped'
+			/>
+		</div>
+		<div class='column-2'>
+			<div class='card-name-header'>
+				<div class='card-name'>
+					<h1>{card.name}</h1>
+				</div>
+				<div class='header-icons'>
+					<div class='icons' title={card.attribute}>
+						{card.attribute === 'DARK' && <Picture alt='Dark Attribute' src={DarkIcon} />}
+						{card.attribute === 'DIVINE' && <Picture alt='Divine Attribute' src={DivineIcon} />}
+						{card.attribute === 'EARTH' && <Picture alt='Earth Attribute' src={EarthIcon} />}
+						{card.attribute === 'FIRE' && <Picture alt='Fire Attribute' src={FireIcon} />}
+						{card.attribute === 'LIGHT' && <Picture alt='Light Attribute' src={LightIcon} />}
+						{card.attribute === 'WATER' && <Picture alt='Water Attribute' src={WaterIcon} />}
+						{card.attribute === 'WIND' && <Picture alt='Wind Attribute' src={WindIcon} />}
+						{card.race === 'Continuous' && <Picture alt='Continuous' src={ContiniousIcon} />}
+						{card.race === 'Equip' && <Picture alt='Equip' src={EquipIcon} />}
+						{card.race === 'Quick-Play' && <Picture alt='Quick-Play' src={QuickPlayIcon} />}
+						{card.race === 'Field' && <Picture alt='Field' src={FieldIcon} />}
+						{card.race === 'Ritual' && <Picture alt='Ritual' src={RitualIcon} />}
+						{card.frameType === 'spell' && <Picture alt='Spell' src={SpellIcon} />}
+						{card.frameType === 'trap' && <Picture alt='Trap' src={TrapIcon} />}
+					</div>
+					<button class='close-button'>
+						<CloseIcon />
+					</button>
+				</div>
+			</div>
+
+			{card.level && (
+				<div class='level-container'>
+					<div class='level' title={'Level ' + card.level.toString()}>
+						{Array.from({ length: card.level }, () => (
+							<Picture
+								alt='Level Star'
+								class='level-star'
+								formats={['avif', 'webp']}
+								height={20}
+								src={LevelIcon}
+								width={20}
+							/>
+						))}
+					</div>
+				</div>
+			)}
+
+			<div class='card-meta'>
+				<div class='meta-item'>
+					<div class='meta-header'>Count</div>
+					<div class='meta-data'>{card.count}</div>
+				</div>
+				<div class='meta-item'>
+					<div class='meta-header'>Rarity</div>
+					<div class='meta-data'>{card.card_sets.find(set => set.set_code === card.card_number)?.set_rarity}</div>
+				</div>
+				<div class='meta-item edition'>
+					<div class='meta-header'>Edition</div>
+					<div class='meta-data'>{card.edition}</div>
+				</div>
+				<div class='meta-item'>
+					<div class='meta-header'>Type</div>
+					<div class='meta-data'>{card.type}</div>
+				</div>
+				<div class='meta-item' title='YYYY-MM-DD'>
+					<div class='meta-header'>TCG Date</div>
+					<div class='meta-data'>{cardSets.find(cs => cs.data.set_code === card.card_number?.split('-')[0])?.data.tcg_date}</div>
+				</div>
+			</div>
+
+			<div class='card-prices'>
+				<div class='price-item'>
+					<div class='price-header'>Amazon</div>
+					<div class='price-data'>${card.card_prices[0].amazon_price}</div>
+				</div>
+				<div class='price-item'>
+					<div class='price-header'>Cardmarket</div>
+					<div class='price-data'>${card.card_prices[0].cardmarket_price}</div>
+				</div>
+				<div class='price-item'>
+					<div class='price-header'>CoolStuffInc</div>
+					<div class='price-data'>${card.card_prices[0].coolstuffinc_price}</div>
+				</div>
+				<div class='price-item'>
+					<div class='price-header'>eBay</div>
+					<div class='price-data'>${card.card_prices[0].ebay_price}</div>
+				</div>
+				<div class='price-item'>
+					<div class='price-header'>TCGplayer</div>
+					<div class='price-data'>${card.card_prices[0].tcgplayer_price}</div>
+				</div>
+			</div>
+
+			<div class='resources-bar-links'>
+				<a href={card.ygoprodeck_url}>YGOPRODeck</a>
+				<a href=`https://yugipedia.com/wiki/${card.name?.replaceAll(' ', '_')}`>Yugipedia</a>
+				<a href=`https://www.tcgplayer.com/search/yugioh/product?q=${card.name}`>TCGplayer</a>
+			</div>
+
+			<div class='card-description-container'>
+				{card.typeline && (
+					<div class='typeline'>
+						[{card.typeline.join('/')}]
+					</div>
+				)}
+
+				<div class='card-description'>
+					{card.desc}
+				</div>
+
+				{(card.atk !== undefined || card.def !== undefined) && (
+					<div class='stats'>
+						{card.atk !== undefined && (
+							<div class='atk'>ATK/ {card.atk}</div>
+						)}
+						{card.def !== undefined && (
+							<div class='def'>DEF/ {card.def}</div>
+						)}
+					</div>
+				)}
+			</div>
+		</div>
+	</div>
+	<div class='next'>
+		<button class='nav-button'>
+			<RightChevronIcon />
+		</button>
+	</div>
+	<div class='previous'>
+		<button class='nav-button'>
+			<RightChevronIcon />
+		</button>
+	</div>
+</div>
+
+<script>
+function hideOverlay(element: Element | null) {
+	const overlay = element as HTMLElement;
+	overlay.style.display = 'none';
+	const overlayCard = document.querySelector(`.card[data-card-number='${overlay.dataset.cardNumber}']`);
+	overlayCard?.classList.remove('glowing');
+}
+
+function navigateCard(direction: 'left' | 'right') {
+	const visibleOverlay = document.querySelector('div.card-overlay[style*="flex"]');
+	if (!visibleOverlay) return;
+
+	const overlayCard = document.querySelector(`.card[data-card-number="${(visibleOverlay as HTMLElement).dataset.cardNumber}"]`);
+	if (!overlayCard) return;
+
+	const targetCard = direction === 'left'
+		? overlayCard.previousElementSibling
+		: overlayCard.nextElementSibling;
+
+	if (targetCard && targetCard.classList.contains('card')) {
+		hideOverlay(visibleOverlay);
+		(targetCard as HTMLElement).click();
+	}
+}
+
+document.querySelectorAll('.close-button').forEach(button => {
+	button.addEventListener('click', () => hideOverlay(button.closest('.card-overlay')))
+});
+
+document.querySelectorAll('.card-overlay').forEach(overlay => {
+	overlay.addEventListener('click', (e) => (e.target === overlay) && hideOverlay(overlay));
+});
+
+document.querySelectorAll('.previous .nav-button').forEach(button => {
+	button.addEventListener('click', () => navigateCard('left'));
+});
+
+document.querySelectorAll('.next .nav-button').forEach(button => {
+	button.addEventListener('click', () => navigateCard('right'));
+});
+
+document.addEventListener('keydown', (e) => {
+	const visibleOverlay = document.querySelector('div.card-overlay[style*="flex"]');
+	if (!visibleOverlay) return;
+
+	if (e.key === 'Escape') {
+		hideOverlay(visibleOverlay);
+		return;
+	}
+
+	if (e.key === 'ArrowLeft') {
+		navigateCard('left');
+	} else if (e.key === 'ArrowRight') {
+		navigateCard('right');
+	}
+});
+</script>
+
+<style>
+.card-overlay {
+	align-items: center;
+	backdrop-filter: blur(4px);
+	background-color: #000000BF;
+	display: none;
+	height: 100dvh;
+	justify-content: center;
+	left: 0;
+	padding: 1rem;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1000;
+	box-sizing: border-box;
+
+	& .next,
+	& .previous {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: 1001;
+
+		& .nav-button {
+			align-items: center;
+			background: #FFFFFF1A;
+			border-radius: 50%;
+			border: none;
+			cursor: pointer;
+			display: flex;
+			justify-content: center;
+			opacity: 0.7;
+			padding: 0.75rem;
+			transition: background-color 0.2s ease, opacity 0.2s ease;
+
+			&:hover {
+				background: #FFFFFF33;
+				opacity: 1;
+			}
+
+			& svg {
+				fill: white;
+				height: 1.5rem;
+				width: 1.5rem;
+			}
+		}
+	}
+
+	& .next {
+		right: 1rem;
+	}
+
+	& .previous {
+		left: 1rem;
+
+		& .nav-button svg {
+			transform: rotate(180deg);
+		}
+	}
+
+	& .card-area {
+		border-radius: 12px;
+		box-shadow: 0 8px 32px #0000004D;
+		display: grid;
+		gap: 1rem;
+		grid-template-columns: minmax(300px, 1fr) minmax(300px, 2fr);
+		max-width: min(80rem, calc(100vw - 8rem));
+		outline: 0.5rem solid #00000050;
+		overflow: hidden;
+		padding: 1rem;
+		position: relative;
+		width: 100%;
+		margin: 0 auto;
+
+		&.effect { background-color: #FF8D54; }
+		&.fusion { background-color: #A086B7; }
+		&.normal { background-color: #FDE68A; }
+		&.ritual { background-color: #9DB5CC; }
+		&.spell { background-color: #1D9E74; }
+		&.synchro { background-color: #CCCCCC; }
+		&.trap { background-color: #BC5A84; }
+		&.xyz { background-color: #000000; }
+
+		& .column-1 {
+			align-items: center;
+			display: flex;
+			justify-content: center;
+			min-width: 0;
+		}
+
+		& .column-2 {
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			min-width: 0;
+
+			& .card-name-header {
+				align-items: center;
+				background: #0000004D;
+				border-radius: 8px;
+				display: flex;
+				justify-content: space-between;
+				margin-bottom: 1rem;
+				padding: 0.75rem 1rem;
+
+				& .card-name {
+					font-family: 'YuGiOh ITC Bold', sans-serif;
+					margin: 0;
+
+					& h1 {
+						color: #FFFFFF;
+						font-size: clamp(1.25rem, 3vw, 1.75rem);
+						margin: 0;
+						word-wrap: break-word;
+					}
+				}
+
+				& .header-icons {
+					align-items: center;
+					display: flex;
+					flex-shrink: 0;
+					gap: 0.5rem;
+
+					& .icons {
+						align-items: center;
+						display: flex;
+						gap: 0.25rem;
+						min-height: 2rem;
+
+						& img {
+							height: 2rem;
+							width: 2rem;
+							display: block;
+						}
+					}
+
+					& .close-button {
+						align-items: center;
+						background: transparent;
+						border-radius: 50%;
+						border: none;
+						color: white;
+						cursor: pointer;
+						display: flex;
+						flex-shrink: 0;
+						height: 2rem;
+						justify-content: center;
+						opacity: 0.7;
+						padding: 0;
+						transition: background-color 0.2s ease, opacity 0.2s ease;
+						width: 2rem;
+
+						&:hover {
+							background-color: #FFFFFF1A;
+							opacity: 1;
+						}
+
+						& svg {
+							display: block;
+							fill: #FFFFFF;
+							height: 1.5rem;
+							width: 1.5rem;
+						}
+					}
+				}
+			}
+
+			& .level-container {
+				display: flex;
+				justify-content: flex-end;
+				margin-bottom: 1rem;
+
+				& .level {
+					align-items: center;
+					display: flex;
+					gap: 0.25rem;
+					padding-right: 1rem;
+
+					& .level-star {
+						flex-shrink: 0;
+					}
+				}
+			}
+
+			& .card-meta {
+				align-items: stretch;
+				border-bottom: 1px solid #ffffff49;
+				display: grid;
+				gap: 0.75rem;
+				grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+				margin-bottom: 1rem;
+				padding-bottom: 1rem;
+
+				& .meta-item {
+					text-align: center;
+					display: flex;
+					flex-direction: column;
+
+					& .meta-header {
+						color: #FFFFFF;
+						flex-shrink: 0;
+						font-size: 0.75rem;
+						font-weight: bold;
+						letter-spacing: 0.5px;
+						margin-bottom: 0.25rem;
+						opacity: 0.8;
+						text-transform: uppercase;
+					}
+
+					& .meta-data {
+						align-items: center;
+						background: #00000033;
+						border-radius: 4px;
+						color: #FFFFFF;
+						display: flex;
+						flex: 1;
+						font-size: 0.9rem;
+						hyphens: auto;
+						justify-content: center;
+						line-height: 1.3;
+						padding: 0.25rem 0.5rem;
+						text-align: center;
+						word-break: break-word;
+					}
+				}
+			}
+
+			& .card-prices {
+				display: grid;
+				gap: 0.75rem;
+				grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+				margin-bottom: 1rem;
+
+				& .price-item {
+					text-align: center;
+
+					& .price-header {
+						color: #FFFFFF;
+						font-size: 0.75rem;
+						font-weight: bold;
+						letter-spacing: 0.5px;
+						margin-bottom: 0.25rem;
+						opacity: 0.8;
+						text-transform: uppercase;
+					}
+
+					& .price-data {
+						background: #00000033;
+						border-radius: 4px;
+						color: #FFFFFF;
+						font-size: 0.9rem;
+						font-weight: 500;
+						padding: 0.25rem 0.5rem;
+					}
+				}
+			}
+
+			& .resources-bar-links {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 1rem;
+				justify-content: center;
+				margin-bottom: 1rem;
+
+				& a {
+					color: #FFFFFF;
+					font-size: 0.9rem;
+					padding-left: 1.25rem;
+					position: relative;
+					text-decoration: none;
+
+					&::before {
+						content: '🔗';
+						left: 0;
+						position: absolute;
+						top: 0;
+					}
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+
+			& .card-description-container {
+				background: #0000004D;
+				border-radius: 8px;
+				border: 2px solid #FFFFFF33;
+				display: flex;
+				flex-direction: column;
+				flex: 1;
+				min-height: 0;
+				padding: 1rem;
+				position: relative;
+
+				& .type {
+					color: #FFFFFF;
+					font-size: 0.8rem;
+					font-weight: bold;
+					margin-bottom: 0.5rem;
+					opacity: 0.9;
+					text-transform: uppercase;
+				}
+
+				& .typeline {
+					color: #FFFFFF;
+					font-size: 0.9rem;
+					font-style: italic;
+					margin-bottom: 0.75rem;
+					opacity: 0.9;
+				}
+
+				& .card-description {
+					color: #FFFFFF;
+					flex: 1;
+					font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+					line-height: 1.4;
+					margin-bottom: 1rem;
+					overflow-y: auto;
+					white-space: pre-line;
+				}
+
+				& .stats {
+					border-top: 1px solid #FFFFFF33;
+					display: flex;
+					gap: 1rem;
+					justify-content: flex-end;
+					margin-top: auto;
+					padding-top: 0.5rem;
+
+					& .atk,
+					& .def {
+						color: #FFFFFF;
+						font-size: 0.9rem;
+						font-weight: bold;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.card-overlay {
+		padding: 0.5rem;
+
+		& .next,
+		& .previous {
+			& .nav-button {
+				padding: 0.5rem;
+
+				& svg {
+					height: 1.25rem;
+					width: 1.25rem;
+				}
+			}
+		}
+
+		& .next {
+			right: 0.5rem;
+		}
+
+		& .previous {
+			left: 0.5rem;
+		}
+
+		& .card-area {
+			gap: 0.5rem;
+			grid-template-columns: 1fr;
+			max-width: calc(100vw - 4rem);
+			padding: 0.75rem;
+		}
+	}
+}
+
+.card-overlay {
+	& .card-area {
+
+		background-image: url(data:image/png;base64,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);
+	}
+}
+</style>

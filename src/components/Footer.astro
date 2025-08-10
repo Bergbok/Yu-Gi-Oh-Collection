@@ -1,0 +1,27 @@
+---
+import Solomon from '../assets/solomon-muto.avif';
+import { Picture } from 'astro:assets';
+---
+
+<footer>
+	<Picture
+		alt="Yugi Moto's grandpa, Solomon Muto - drawn by MeatCanyon"
+		formats={['avif', 'webp']}
+		height='315'
+		src={Solomon}
+		title=':3'
+		width='360'
+	/>
+</footer>
+
+<style>
+footer {
+	display: flex;
+	justify-content: center;
+
+	& img {
+		width: auto;
+		height: 69px;
+	}
+}
+</style>

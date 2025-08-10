@@ -1,0 +1,235 @@
+---
+import { getCollection } from 'astro:content';
+import type { Card as YuGiOhCard } from '../types/yugioh';
+
+const cards = await getCollection('cards');
+
+const cardsByRarity = cards.reduce<Record<string, YuGiOhCard[]>>((acc, card) => {
+	const rarity = card.data.card_sets[0]?.set_rarity;
+	if (!rarity) return acc;
+	if (!acc[rarity]) {
+		acc[rarity] = [];
+	}
+	acc[rarity].push(card.data);
+	return acc;
+}, {});
+
+const sortedRarities = Object.entries(cardsByRarity).sort(([,a], [,b]) => b.length - a.length);
+---
+
+<div id='stats'>
+	<ul>
+		<li>
+			<span class='label'>Total Cards</span>
+			<span class='value'>({cards.reduce((sum, card) => sum + card.data.count, 0)})</span>
+		</li>
+		<li>
+			<span class='label'>Unique Cards</span>
+			<span class='value'>({cards.length})</span>
+		</li>
+		<li class='rarities-container'>
+			<details>
+				<summary>
+					<span class='label'>Rarities</span>
+					<span class='value'>({sortedRarities.length})</span>
+				</summary>
+				<div class='rarities-dropdown'>
+					{sortedRarities.map(([rarity, cards]) => (
+						<div class='rarity-item'>
+							<span class='label'>{rarity}</span>
+							<span class='value'>({cards.length})</span>
+						</div>
+					))}
+				</div>
+			</details>
+		</li>
+		<li>
+			<span class='label'>Comes with <a class='value' href='https://yugipedia.com/wiki/Collectible_Tins_2012_Wave_2'>Ninja Grandmaster Hanzo</a>, <a class='value' href='https://yugipedia.com/wiki/Collectible_Tins_2012_Wave_2'>Hieratic Sun Dragon Overlord of Heliopolis</a> & <a class='value' href='https://yugipedia.com/wiki/Zexal_Collection_Tin'>Zexal Collection</a> tins</span>
+		</li>
+	</ul>
+</div>
+
+<style>
+#stats {
+	background-color: #F2A0801C;
+	border-radius: 0.5rem;
+	color: silver;
+	padding: 1rem 1.5rem;
+	overflow: visible;
+	margin-bottom: 1rem;
+
+	& ul {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 1rem;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		font-size: 0.9rem;
+
+		& li {
+			display: flex;
+			align-items: center;
+			gap: 0.25rem;
+			white-space: nowrap;
+
+			&:last-child {
+				text-align: center;
+				white-space: normal;
+				word-wrap: break-word;
+
+				& .label {
+					line-height: 1.3;
+				}
+			}
+
+			& a {
+				transition: color 0.1s ease;
+
+				&:hover {
+					color: #d38647;
+				}
+			}
+
+			& .label {
+				font-weight: 500;
+			}
+
+			& .value {
+				color: #80522C;
+				font-weight: bold;
+			}
+
+			&.rarities-container {
+				position: relative;
+
+				& details {
+					& summary {
+						display: flex;
+						align-items: center;
+						gap: 0.25rem;
+						cursor: pointer;
+						list-style: none;
+
+						&::after {
+							content: '▼';
+							font-size: 0.7rem;
+							margin-left: 0.25rem;
+							transition: transform 0.2s ease;
+						}
+					}
+
+					&[open] summary::after {
+						transform: rotate(-180deg);
+					}
+
+					& .rarities-dropdown {
+						position: absolute;
+						top: 100%;
+						left: 50%;
+						transform: translateX(-50%);
+						background-color: #231A11;
+						border: 1px solid #80522C;
+						border-radius: 0.25rem;
+						padding: 0.5rem;
+						margin-top: 0.25rem;
+						min-width: 150px;
+						z-index: 10;
+						box-shadow: 0 4px 8px #0000004D;
+
+						& .rarity-item {
+							display: flex;
+							justify-content: space-between;
+							align-items: center;
+							padding: 0.25rem 0;
+							border-bottom: 1px solid #80522C33;
+
+							&:last-child {
+								border-bottom: none;
+							}
+
+							& .label,
+							& .value {
+								font-size: 0.8rem;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 433px) {
+	li:nth-child(2)::after {
+		content: '|';
+		color: #C0C0C080;
+		font-weight: bold;
+		margin-left: 1rem;
+	}
+}
+
+@media (min-width: 1530px) {
+	li:nth-child(3)::after {
+		content: '|';
+		color: #C0C0C080;
+		font-weight: bold;
+		margin-left: 1rem;
+	}
+}
+
+@media (max-width: 768px) {
+	#stats {
+		padding: 0.75rem 1rem;
+
+		& ul {
+			gap: 0.75rem;
+			font-size: 0.8rem;
+
+			& li:nth-child(2)::after {
+				margin-left: 0.75rem;
+			}
+
+			& li.rarities-container details .rarities-dropdown {
+				min-width: 120px;
+				font-size: 0.75rem;
+
+				& .rarity-item {
+					& .label,
+					& .value {
+						font-size: 0.7rem;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 550px) {
+	#stats {
+		padding: 0.5rem 0.75rem;
+
+		& ul {
+			gap: 0.5rem;
+			font-size: 0.75rem;
+
+			& li:nth-child(2)::after {
+				margin-left: 0.5rem;
+			}
+
+			& li.rarities-container details .rarities-dropdown {
+				min-width: 100px;
+
+				& .rarity-item {
+					& .label,
+					& .value {
+						font-size: 0.65rem;
+					}
+				}
+			}
+		}
+	}
+}
+</style>

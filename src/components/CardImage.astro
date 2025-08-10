@@ -1,0 +1,58 @@
+---
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+    alt: string;
+	loading?: 'eager' | 'lazy';
+    password: number;
+    type: 'full' | 'cropped';
+}
+
+const { alt, password, type, loading = 'lazy' } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/cardimages/**/*.avif');
+const imagePath = `/src/assets/cardimages/${type}/${password}.avif`;
+const imageImport = images[imagePath];
+
+if (!imageImport) console.error(`Image not found: ${imagePath}`);
+
+/*
+Initally imported all images in content.config.ts and referenced card.card_images when creating Pictures,
+Astro didn't want to build using that approach, dev server worked fine tho.
+
+It's probably possible, but the docs on it were lacking when I tried.
+https://docs.astro.build/en/guides/images/#images-in-content-collections
+
+Switched to using this approach, works fine but would've preferred the other one. w/e.
+https://docs.astro.build/en/recipes/dynamically-importing-images
+*/
+---
+
+{imageImport && (
+    <Picture
+		formats={['avif', 'webp']}
+		loading={loading}
+        alt={alt}
+        class={type === 'full' ? 'full-card-image' : 'cropped-card-image'}
+        height={type === 'full' ? 1185 : 624}
+        src={imageImport()}
+        width={type === 'full' ? 815 : 624}
+    />
+)}
+
+<style>
+.full-card-image {
+	aspect-ratio: 815 / 1185;
+	height: 100%;
+	object-fit: cover;
+	width: 100%;
+}
+
+.cropped-card-image {
+	background-color: #00000050;
+	aspect-ratio: 1 / 1;
+	height: auto;
+	max-width: 100%;
+	outline: 0.5rem solid #00000050;
+}
+</style>

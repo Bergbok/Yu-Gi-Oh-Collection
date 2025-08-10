@@ -1,0 +1,95 @@
+---
+import { Picture } from 'astro:assets';
+import YuGiOhLogo from '../assets/logo.avif';
+import GitHubLogo from '../assets/github.svg';
+---
+
+<header>
+	<div class='container'>
+		<div class='logo'>
+			<a href='https://www.youtube.com/watch?v=ippSwVEyNsA'>
+				<Picture
+					alt='Yu-Gi-Oh! Logo'
+					title='Yu-Gi-Oh!'
+					formats={['avif', 'webp']}
+					height={90}
+					loading='eager'
+					src={YuGiOhLogo}
+					width={256}
+				/>
+			</a>
+		</div>
+		<a href='https://github.com/Bergbok/Yu-Gi-Oh-Collection' target='_blank' rel='noopener noreferrer' aria-label='GitHub Repository' title='GitHub Repository'>
+			<GitHubLogo />
+		</a>
+	</div>
+</header>
+
+<style>
+header {
+	background-color: #111111;
+	box-shadow: 0 2px 8px #00000033;
+	padding: 0.6rem;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+
+	& .container {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		margin: 0 auto;
+		max-width: 100rem;
+		position: relative;
+
+		& .logo {
+			display: flex;
+			justify-content: center;
+			width: 100%;
+
+			& a {
+				display: flex;
+				justify-content: center;
+			}
+		}
+
+		& a[title='GitHub Repository'] {
+			display: flex;
+			fill: #F88E42;
+			padding: 0.5rem;
+			position: absolute;
+			right: 20px;
+			top: 50%;
+			transform: translateY(-50%);
+			transition: transform 0.2s ease;
+
+			&:hover {
+				fill: #FFB978;
+				transform: translateY(-50%) scale(1.1);
+			}
+
+			& svg {
+				width: 3rem;
+				display: block;
+
+				& path {
+					fill: inherit;
+					transition: fill 0.3s ease;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.logo img {
+		width: 180px;
+		height: auto;
+	}
+
+	a[title='GitHub Repository'] svg {
+		width: 32px;
+		height: 32px;
+	}
+}
+</style>

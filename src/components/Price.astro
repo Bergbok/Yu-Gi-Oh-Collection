@@ -1,0 +1,270 @@
+---
+import currency from 'currency.js';
+import { getCollection } from 'astro:content';
+
+const cards = await getCollection('cards');
+const countries = await getCollection('countries');
+const currencyCodes = [...new Set(countries
+	.map(country => country.data.currency_code.toUpperCase())
+	.filter(code => code && code.length === 3)
+)].sort();
+
+const initialCollectionValue = currency(cards.reduce((total, cardObj) => {
+	const card = cardObj.data;
+	const count = card.count || 1;
+	const prices = card.card_prices[0];
+
+	const averagePrice = (
+		prices.cardmarket_price +
+		prices.tcgplayer_price +
+		prices.amazon_price +
+		prices.coolstuffinc_price
+	) / 4;
+
+	return total + (averagePrice * count);
+}, 0)).format();
+---
+
+<div id='values'>
+	<div class='price-sources'>
+		<div class='checkbox-group'>
+			<label class='checkbox-label' title='Amazon'>
+				<input type='checkbox' id='amazon' checked />
+				<span>Amazon</span>
+			</label>
+			<label class='checkbox-label' title='Cardmarket'>
+				<input type='checkbox' id='cardmarket' checked />
+				<span>Cardmarket</span>
+			</label>
+			<label class='checkbox-label' title='CoolStuffInc'>
+				<input type='checkbox' id='coolstuffinc' checked />
+				<span>CoolStuffInc</span>
+			</label>
+			<label class='checkbox-label' title='eBay'>
+				<input type='checkbox' id='ebay' />
+				<span>eBay</span>
+			</label>
+			<label class='checkbox-label' title='TCGplayer'>
+				<input type='checkbox' id='tcgplayer' checked />
+				<span>TCGplayer</span>
+			</label>
+		</div>
+	</div>
+
+	<div class='total-value'>
+		<span id='collection-value'>{initialCollectionValue}</span>
+	</div>
+
+	<div class='currency-selection'>
+		<select id='currency-select'>
+			{currencyCodes.map(code => <option value={code}>{code}</option>)}
+		</select>
+	</div>
+</div>
+
+<script>
+import currency from 'currency.js';
+import getSymbolFromCurrency from 'currency-symbol-map';
+import countriesJSON from '@fawazahmed0/currency-api/v1/country.json';
+import exchangeRateJSON from '@fawazahmed0/currency-api/v1/currencies/usd.json';
+import type { CloudflareGeolocation } from '../types/geolocation';
+import type { CountryMap, ExchangeRates } from '../types/exchange-rate';
+
+let countries: CountryMap = countriesJSON;
+let exchangeRates: ExchangeRates = exchangeRateJSON;
+const priceSourceCheckboxes = document.querySelectorAll('.price-sources input[type="checkbox"]') as NodeListOf<HTMLInputElement>;
+const currencySelect = document.getElementById('currency-select') as unknown as HTMLSelectElement;
+const collectionValueElement = document.getElementById('collection-value') as HTMLElement;
+
+function updateCollectionValue() {
+	let valueUSD = 0;
+
+	const currencyCode = currencySelect.value.toLowerCase();
+
+	const selectedSources = Array.from(priceSourceCheckboxes)
+		.filter(checkbox => checkbox.checked)
+		.map(checkbox => checkbox.id);
+
+	document.querySelectorAll('.card').forEach(card => {
+		const cardElement = card as HTMLElement;
+		const cardCount = parseInt(cardElement.dataset.count || '1');
+
+		const prices: number[] = [];
+		selectedSources.forEach(source => {
+			const price = parseFloat(cardElement.dataset[`${source}Price`] || '0');
+			if (price > 0) prices.push(price);
+		});
+
+		let filteredPrices = prices.filter(price => {
+			const otherPrices = prices.filter(p => p !== price);
+			const sumOfOthers = otherPrices.reduce((sum, p) => sum + p, 0);
+			return price <= sumOfOthers;
+		});
+
+		if (filteredPrices.length === 0) filteredPrices = [Math.min(...prices)];
+
+		const averagePrice = filteredPrices.reduce((sum, price) => sum + price, 0) / filteredPrices.length;
+		valueUSD += currency(averagePrice).multiply(cardCount).value;
+	});
+
+	if (isNaN(valueUSD) || valueUSD === 0) {
+		collectionValueElement.textContent = 'N/A';
+		return;
+	}
+
+	if (!currencyCode || currencyCode === 'usd') {
+		collectionValueElement.textContent = currency(valueUSD).format();
+		return;
+	}
+
+	const valueConverted = currency(valueUSD).multiply(exchangeRates.usd[currencyCode]).value;
+
+	const formattedCurrency = new Intl.NumberFormat(navigator.language, {
+		currency: currencyCode,
+		currencyDisplay: 'code',
+		style: 'currency'
+	}).format(valueConverted).replace(new RegExp(`${currencyCode}\\s+`, 'i'), '');
+
+	collectionValueElement.textContent = `${getSymbolFromCurrency(currencyCode)} ${formattedCurrency}`;
+}
+
+currencySelect.addEventListener('change', updateCollectionValue);
+priceSourceCheckboxes.forEach(checkbox => checkbox.addEventListener('change', updateCollectionValue));
+
+let initialized = {
+	geolocation: false,
+	exchangeRates: false
+};
+
+function checkAndUpdate() {
+	const allReady = Object.values(initialized).every(ready => ready);
+	if (allReady) updateCollectionValue();
+}
+
+await fetch('/geolocation')
+	.then(res => res.json())
+	.then(data => {
+		const currencyCode = countries[(data as CloudflareGeolocation).country.toLowerCase()]?.currency_code || 'usd';
+		currencySelect.value = currencyCode.toUpperCase();
+		initialized.geolocation = true;
+		checkAndUpdate();
+	});
+
+function checkAndUpdateExchangeRates(data: unknown) {
+	exchangeRates = data as ExchangeRates;
+	initialized.exchangeRates = true;
+	localStorage.setItem('exchangeRates', JSON.stringify(exchangeRates));
+	checkAndUpdate();
+}
+
+await fetch('https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.min.json')
+	.then(res => res.json())
+	.then(checkAndUpdateExchangeRates)
+	.catch(async () => {
+		return fetch('https://latest.currency-api.pages.dev/v1/currencies/usd.min.json')
+			.then(res => res.json())
+			.then(checkAndUpdateExchangeRates)
+			.catch(() => checkAndUpdateExchangeRates(exchangeRates));
+	});
+</script>
+
+<style>
+#values {
+	align-items: center;
+	background-color: #F2A0801C;
+	border-radius: 0.5rem;
+	color: silver;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+	height: 100%;
+	justify-content: center;
+	padding: 1.5rem;
+
+	& .price-sources {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		flex-basis: 100%;
+		order: 1;
+
+		& .checkbox-group {
+			display: grid;
+			grid-template-columns: repeat(5, minmax(auto, 1fr));
+			gap: 0.5rem;
+			width: 100%;
+			align-items: center;
+
+			& .checkbox-label {
+				align-items: center;
+				cursor: pointer;
+				display: flex;
+				font-size: 0.9rem;
+				font-weight: normal;
+				gap: 0.4rem;
+				white-space: nowrap;
+				justify-content: center;
+				min-width: 0;
+
+				& input[type='checkbox'] {
+					accent-color: #80522C;
+					cursor: pointer;
+					margin: 0;
+					transform: scale(1.1);
+					flex-shrink: 0;
+				}
+
+				& span {
+					user-select: none;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
+
+				&:hover {
+					opacity: 0.8;
+				}
+			}
+		}
+	}
+
+	& .total-value {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		order: 2;
+
+		& #collection-value {
+			font-size: 1.25rem;
+			font-weight: bold;
+			color: #80522C;
+			background: #80522C1A;
+			padding: 0.4rem 0.8rem;
+			border-radius: 0.25rem;
+			min-width: 80px;
+		}
+	}
+
+	& .currency-selection {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		order: 3;
+
+		& select {
+			background-color: #231A11;
+			border-radius: 0.25rem;
+			border: none;
+			color: silver;
+			cursor: pointer;
+			font-size: 1rem;
+			padding: 0.5rem 1rem;
+
+			&:hover {
+				background-color: #80522C;
+			}
+		}
+	}
+}
+
+</style>
