@@ -1,0 +1,85 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!doctype html>
+
+<html lang='en'>
+	<head>
+		<meta charset='UTF-8' />
+		<meta name='author' content='Bergbok (https://github.com/Bergbok)' />
+		<meta name='description' content='Yu-Gi-Oh! card collection showcase.' />
+		<meta name='keywords' content='heart of the cards' />
+		<meta name='viewport' content='width=device-width' />
+		<meta name='generator' content={Astro.generator} />
+		<link rel='icon' type='image/svg+xml' href='/favicon.avif' />
+		<link href='/fonts/Yu-Gi-Oh!-ITC-Stone-Serif-Small-Caps-Bold.woff2' as='font' rel='preload' type='font/woff2' crossorigin='anonymous'>
+		<title>Yu-Gi-Oh! Card Collection</title>
+	</head>
+	<body>
+		<Header />
+		<slot />
+		<Footer />
+	</body>
+</html>
+
+<style>
+html,
+body {
+	background-color: rgb(35, 26, 17);
+	font-family: 'YuGiOh ITC Bold', sans-serif;
+	height: 100dvh;
+	margin: 0;
+	overflow-x: hidden;
+	width: 100dvw;
+}
+</style>
+
+<style is:global>
+img {
+	font-size: 0;
+}
+
+a:focus,
+button:focus,
+select:focus,
+summary:focus {
+	outline: 2px solid #80522C;
+}
+
+@font-face {
+	font-family: 'YuGiOh ITC Italic';
+	font-style: italic;
+	font-weight: normal;
+	src: url('/fonts/Yu-Gi-Oh!-ITC-Stone-Serif-LT-Italic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'YuGiOh ITC Bold';
+	font-style: normal;
+	font-weight: bold;
+	src: url('/fonts/Yu-Gi-Oh!-ITC-Stone-Serif-Small-Caps-Bold.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'YuGiOh Matrix Book';
+	font-style: normal;
+	font-weight: normal;
+	src: url('/fonts/Yu-Gi-Oh!-Matrix-Book.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'YuGiOh Matrix Small Caps 1';
+	font-style: normal;
+	font-weight: normal;
+	src: url('/fonts/Yu-Gi-Oh!-Matrix-Regular-Small-Caps-1.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'YuGiOh Matrix Small Caps 2';
+	font-style: normal;
+	font-weight: normal;
+	src: url('/fonts/Yu-Gi-Oh!-Matrix-Regular-Small-Caps-2.woff2') format('woff2');
+}
+</style>
