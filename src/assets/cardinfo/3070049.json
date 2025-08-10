@@ -1,0 +1,45 @@
+{
+	"data": [
+		{
+			"id": 3070049,
+			"name": "Snow Dragon",
+			"typeline": ["Dragon", "Effect"],
+			"type": "Effect Monster",
+			"humanReadableCardType": "Effect Monster",
+			"frameType": "effect",
+			"desc": "When this card is destroyed by battle or by a card effect and sent to the Graveyard: Place 1 Ice Counter on each face-up monster on the field.",
+			"race": "Dragon",
+			"atk": 1400,
+			"def": 900,
+			"level": 4,
+			"attribute": "WATER",
+			"ygoprodeck_url": "https://ygoprodeck.com/card/snow-dragon-276",
+			"card_sets": [
+				{
+					"set_name": "Abyss Rising",
+					"set_code": "ABYR-EN094",
+					"set_rarity": "Common",
+					"set_rarity_code": "(C)",
+					"set_price": "0"
+				}
+			],
+			"card_images": [
+				{
+					"id": 3070049,
+					"image_url": "https://images.ygoprodeck.com/images/cards/3070049.jpg",
+					"image_url_small": "https://images.ygoprodeck.com/images/cards_small/3070049.jpg",
+					"image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/3070049.jpg"
+				}
+			],
+			"card_prices": [
+				{
+					"cardmarket_price": "0.07",
+					"tcgplayer_price": "0.15",
+					"ebay_price": "5.95",
+					"amazon_price": "0.25",
+					"coolstuffinc_price": "0.25"
+				}
+			]
+		}
+	]
+}

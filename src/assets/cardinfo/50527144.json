@@ -1,0 +1,48 @@
+{
+	"data": [
+		{
+			"id": 50527144,
+			"name": "Ghostrick Vanish",
+			"type": "Trap Card",
+			"humanReadableCardType": "Normal Trap",
+			"frameType": "trap",
+			"desc": "Reveal 1 \"Ghostrick\" monster in your hand; this turn, \"Ghostrick\" cards you control, and face-down Defense Position monsters you control, cannot be targeted by, or be destroyed by, card effects.",
+			"race": "Normal",
+			"archetype": "Ghostrick",
+			"ygoprodeck_url": "https://ygoprodeck.com/card/ghostrick-vanish-4305",
+			"card_sets": [
+				{
+					"set_name": "2014 Mega-Tin Mega Pack",
+					"set_code": "MP14-EN174",
+					"set_rarity": "Common",
+					"set_rarity_code": "(C)",
+					"set_price": "0"
+				},
+				{
+					"set_name": "Shadow Specters",
+					"set_code": "SHSP-EN073",
+					"set_rarity": "Common",
+					"set_rarity_code": "(C)",
+					"set_price": "0"
+				}
+			],
+			"card_images": [
+				{
+					"id": 50527144,
+					"image_url": "https://images.ygoprodeck.com/images/cards/50527144.jpg",
+					"image_url_small": "https://images.ygoprodeck.com/images/cards_small/50527144.jpg",
+					"image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/50527144.jpg"
+				}
+			],
+			"card_prices": [
+				{
+					"cardmarket_price": "0.10",
+					"tcgplayer_price": "0.23",
+					"ebay_price": "1.22",
+					"amazon_price": "0.25",
+					"coolstuffinc_price": "0.39"
+				}
+			]
+		}
+	]
+}

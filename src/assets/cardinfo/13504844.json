@@ -1,0 +1,69 @@
+{
+	"data": [
+		{
+			"id": 13504844,
+			"name": "Gottoms' Emergency Call",
+			"type": "Trap Card",
+			"humanReadableCardType": "Normal Trap",
+			"frameType": "trap",
+			"desc": "If a face-up \"X-Saber\" monster is on the field: Target 2 \"X-Saber\" monsters in any Graveyard; Special Summon both to your side of the field.",
+			"race": "Normal",
+			"archetype": "X-Saber",
+			"ygoprodeck_url": "https://ygoprodeck.com/card/gottoms-emergency-call-1158",
+			"card_sets": [
+				{
+					"set_name": "Duel Terminal 7a",
+					"set_code": "DT07-EN047",
+					"set_rarity": "Duel Terminal Normal Parallel Rare",
+					"set_rarity_code": "(DNPR)",
+					"set_price": "0"
+				},
+				{
+					"set_name": "Quarter Century Stampede",
+					"set_code": "RA04-EN138",
+					"set_rarity": "Platinum Secret Rare",
+					"set_rarity_code": "(PS)",
+					"set_price": "0"
+				},
+				{
+					"set_name": "Quarter Century Stampede",
+					"set_code": "RA04-EN138",
+					"set_rarity": "Quarter Century Secret Rare",
+					"set_rarity_code": "",
+					"set_price": "0"
+				},
+				{
+					"set_name": "Starter Deck: Yu-Gi-Oh! 5D's 2009",
+					"set_code": "5DS2-EN033",
+					"set_rarity": "Common",
+					"set_rarity_code": "(C)",
+					"set_price": "0"
+				},
+				{
+					"set_name": "Turbo Pack: Booster Four",
+					"set_code": "TU04-EN001",
+					"set_rarity": "Ultra Rare",
+					"set_rarity_code": "(UR)",
+					"set_price": "0"
+				}
+			],
+			"card_images": [
+				{
+					"id": 13504844,
+					"image_url": "https://images.ygoprodeck.com/images/cards/13504844.jpg",
+					"image_url_small": "https://images.ygoprodeck.com/images/cards_small/13504844.jpg",
+					"image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/13504844.jpg"
+				}
+			],
+			"card_prices": [
+				{
+					"cardmarket_price": "0.45",
+					"tcgplayer_price": "0.33",
+					"ebay_price": "2.95",
+					"amazon_price": "0.86",
+					"coolstuffinc_price": "4.99"
+				}
+			]
+		}
+	]
+}

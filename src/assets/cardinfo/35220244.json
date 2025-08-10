@@ -1,0 +1,40 @@
+{
+	"data": [
+		{
+			"id": 35220244,
+			"name": "Gravity Blaster",
+			"type": "Spell Card",
+			"humanReadableCardType": "Equip Spell",
+			"frameType": "spell",
+			"desc": "Equip only to a Machine-Type monster. Once per turn: You can activate this effect; it permanently gains 400 ATK. (This ATK gain remains even if this card leaves the field or the monster becomes unaffected by card effects.) If it battles an opponent's monster, that monster's effect is negated during the Battle Phase only.",
+			"race": "Equip",
+			"ygoprodeck_url": "https://ygoprodeck.com/card/gravity-blaster-2987",
+			"card_sets": [
+				{
+					"set_name": "Abyss Rising",
+					"set_code": "ABYR-EN054",
+					"set_rarity": "Common",
+					"set_rarity_code": "(C)",
+					"set_price": "0"
+				}
+			],
+			"card_images": [
+				{
+					"id": 35220244,
+					"image_url": "https://images.ygoprodeck.com/images/cards/35220244.jpg",
+					"image_url_small": "https://images.ygoprodeck.com/images/cards_small/35220244.jpg",
+					"image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/35220244.jpg"
+				}
+			],
+			"card_prices": [
+				{
+					"cardmarket_price": "0.16",
+					"tcgplayer_price": "0.21",
+					"ebay_price": "1.95",
+					"amazon_price": "0.20",
+					"coolstuffinc_price": "0.49"
+				}
+			]
+		}
+	]
+}

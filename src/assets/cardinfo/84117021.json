@@ -1,0 +1,40 @@
+{
+	"data": [
+		{
+			"id": 84117021,
+			"name": "Spell Wall",
+			"type": "Spell Card",
+			"humanReadableCardType": "Normal Spell",
+			"frameType": "spell",
+			"desc": "Activate 1 of these effects. Your opponent takes no further damage this turn.\n\u25cf During this turn, no Summon of a Spellcaster-Type monster can be negated, and when a Spellcaster-Type monster is Summoned, your opponent cannot activate cards or effects.\n\u25cf Target 1 Spellcaster-Type monster you control; if it attacks this turn, your opponent cannot activate cards or effects until the end of the Damage Step.",
+			"race": "Normal",
+			"ygoprodeck_url": "https://ygoprodeck.com/card/spell-wall-7054",
+			"card_sets": [
+				{
+					"set_name": "Cosmo Blazer",
+					"set_code": "CBLZ-EN088",
+					"set_rarity": "Common",
+					"set_rarity_code": "(C)",
+					"set_price": "0"
+				}
+			],
+			"card_images": [
+				{
+					"id": 84117021,
+					"image_url": "https://images.ygoprodeck.com/images/cards/84117021.jpg",
+					"image_url_small": "https://images.ygoprodeck.com/images/cards_small/84117021.jpg",
+					"image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/84117021.jpg"
+				}
+			],
+			"card_prices": [
+				{
+					"cardmarket_price": "0.10",
+					"tcgplayer_price": "0.11",
+					"ebay_price": "1.00",
+					"amazon_price": "1.77",
+					"coolstuffinc_price": "0.25"
+				}
+			]
+		}
+	]
+}

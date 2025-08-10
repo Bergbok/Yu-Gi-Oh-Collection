@@ -1,0 +1,89 @@
+{
+	"data": [
+		{
+			"id": 64664373,
+			"name": "Metaltronus",
+			"type": "Spell Card",
+			"humanReadableCardType": "Quick-Play Spell",
+			"frameType": "spell",
+			"desc": "Target 1 face-up non-Token monster your opponent controls; Special Summon 1 monster from your hand, Deck, or Extra Deck that has 2 or more of the same Type, Attribute, and/or ATK (but negate its effects), and if you do, negate that targeted monster's effects, also, after that, if these monsters have the same name, you can banish both, face-down. Your opponent cannot activate the targeted monster's effects in response to this card's activation. You can only activate 1 \"Metaltronus\" per turn.",
+			"race": "Quick-Play",
+			"ygoprodeck_url": "https://ygoprodeck.com/card/metaltronus-14310",
+			"card_sets": [
+				{
+					"set_name": "Legacy of Destruction",
+					"set_code": "LEDE-EN069",
+					"set_rarity": "Super Rare",
+					"set_rarity_code": "(SR)",
+					"set_price": "0"
+				},
+				{
+					"set_name": "Quarter Century Stampede",
+					"set_code": "RA04-EN100",
+					"set_rarity": "Collector's Rare",
+					"set_rarity_code": "(CR)",
+					"set_price": "0"
+				},
+				{
+					"set_name": "Quarter Century Stampede",
+					"set_code": "RA04-EN100",
+					"set_rarity": "Platinum Secret Rare",
+					"set_rarity_code": "(PS)",
+					"set_price": "0"
+				},
+				{
+					"set_name": "Quarter Century Stampede",
+					"set_code": "RA04-EN100",
+					"set_rarity": "Quarter Century Secret Rare",
+					"set_rarity_code": "",
+					"set_price": "0"
+				},
+				{
+					"set_name": "Quarter Century Stampede",
+					"set_code": "RA04-EN100",
+					"set_rarity": "Secret Rare",
+					"set_rarity_code": "(ScR)",
+					"set_price": "0"
+				},
+				{
+					"set_name": "Quarter Century Stampede",
+					"set_code": "RA04-EN100",
+					"set_rarity": "Super Rare",
+					"set_rarity_code": "(SR)",
+					"set_price": "0"
+				},
+				{
+					"set_name": "Quarter Century Stampede",
+					"set_code": "RA04-EN100",
+					"set_rarity": "Ultimate Rare",
+					"set_rarity_code": "(UtR)",
+					"set_price": "0"
+				},
+				{
+					"set_name": "Quarter Century Stampede",
+					"set_code": "RA04-EN100",
+					"set_rarity": "Ultra Rare",
+					"set_rarity_code": "(UR)",
+					"set_price": "0"
+				}
+			],
+			"card_images": [
+				{
+					"id": 64664373,
+					"image_url": "https://images.ygoprodeck.com/images/cards/64664373.jpg",
+					"image_url_small": "https://images.ygoprodeck.com/images/cards_small/64664373.jpg",
+					"image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/64664373.jpg"
+				}
+			],
+			"card_prices": [
+				{
+					"cardmarket_price": "0.22",
+					"tcgplayer_price": "0.24",
+					"ebay_price": "0.00",
+					"amazon_price": "0.00",
+					"coolstuffinc_price": "0.00"
+				}
+			]
+		}
+	]
+}

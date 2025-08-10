@@ -1,0 +1,47 @@
+{
+	"data": [
+		{
+			"id": 90740330,
+			"name": "Taunt",
+			"type": "Trap Card",
+			"humanReadableCardType": "Normal Trap",
+			"frameType": "trap",
+			"desc": "Activate only during your opponent's Main Phase 1; select 1 monster on your side of the field. While the selected card remains on the field, if your opponent attacks with a monster(s) this turn, they must select the selected monster as the attack target.",
+			"race": "Normal",
+			"ygoprodeck_url": "https://ygoprodeck.com/card/taunt-7578",
+			"card_sets": [
+				{
+					"set_name": "Dark Revelation Volume 3",
+					"set_code": "DR3-EN049",
+					"set_rarity": "Common",
+					"set_rarity_code": "(C)",
+					"set_price": "1.24"
+				},
+				{
+					"set_name": "Soul of the Duelist",
+					"set_code": "SOD-EN049",
+					"set_rarity": "Short Print",
+					"set_rarity_code": "(SP)",
+					"set_price": "1.05"
+				}
+			],
+			"card_images": [
+				{
+					"id": 90740330,
+					"image_url": "https://images.ygoprodeck.com/images/cards/90740330.jpg",
+					"image_url_small": "https://images.ygoprodeck.com/images/cards_small/90740330.jpg",
+					"image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/90740330.jpg"
+				}
+			],
+			"card_prices": [
+				{
+					"cardmarket_price": "0.10",
+					"tcgplayer_price": "0.21",
+					"ebay_price": "0.99",
+					"amazon_price": "0.25",
+					"coolstuffinc_price": "0.25"
+				}
+			]
+		}
+	]
+}

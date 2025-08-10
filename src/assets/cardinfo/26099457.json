@@ -1,0 +1,40 @@
+{
+	"data": [
+		{
+			"id": 26099457,
+			"name": "Falling Current",
+			"type": "Spell Card",
+			"humanReadableCardType": "Normal Spell",
+			"frameType": "spell",
+			"desc": "Target 1 face-up monster you control and declare a Level between 1 and 3; it becomes that Level.",
+			"race": "Normal",
+			"ygoprodeck_url": "https://ygoprodeck.com/card/falling-current-2247",
+			"card_sets": [
+				{
+					"set_name": "Galactic Overlord",
+					"set_code": "GAOV-EN053",
+					"set_rarity": "Common",
+					"set_rarity_code": "(C)",
+					"set_price": "0"
+				}
+			],
+			"card_images": [
+				{
+					"id": 26099457,
+					"image_url": "https://images.ygoprodeck.com/images/cards/26099457.jpg",
+					"image_url_small": "https://images.ygoprodeck.com/images/cards_small/26099457.jpg",
+					"image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/26099457.jpg"
+				}
+			],
+			"card_prices": [
+				{
+					"cardmarket_price": "0.07",
+					"tcgplayer_price": "0.12",
+					"ebay_price": "0.99",
+					"amazon_price": "0.25",
+					"coolstuffinc_price": "0.25"
+				}
+			]
+		}
+	]
+}

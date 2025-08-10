@@ -1,0 +1,48 @@
+{
+	"data": [
+		{
+			"id": 51365514,
+			"name": "Hieratic Seal of Supremacy",
+			"type": "Spell Card",
+			"humanReadableCardType": "Normal Spell",
+			"frameType": "spell",
+			"desc": "Special Summon 1 \"Hieratic\" monster from your hand.",
+			"race": "Normal",
+			"archetype": "Hieratic",
+			"ygoprodeck_url": "https://ygoprodeck.com/card/hieratic-seal-of-supremacy-4369",
+			"card_sets": [
+				{
+					"set_name": "Galactic Overlord",
+					"set_code": "GAOV-EN057",
+					"set_rarity": "Common",
+					"set_rarity_code": "(C)",
+					"set_price": "0"
+				},
+				{
+					"set_name": "Ghosts From the Past",
+					"set_code": "GFTP-EN055",
+					"set_rarity": "Ultra Rare",
+					"set_rarity_code": "(UR)",
+					"set_price": "1.27"
+				}
+			],
+			"card_images": [
+				{
+					"id": 51365514,
+					"image_url": "https://images.ygoprodeck.com/images/cards/51365514.jpg",
+					"image_url_small": "https://images.ygoprodeck.com/images/cards_small/51365514.jpg",
+					"image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/51365514.jpg"
+				}
+			],
+			"card_prices": [
+				{
+					"cardmarket_price": "0.05",
+					"tcgplayer_price": "0.04",
+					"ebay_price": "0.99",
+					"amazon_price": "0.20",
+					"coolstuffinc_price": "0.39"
+				}
+			]
+		}
+	]
+}

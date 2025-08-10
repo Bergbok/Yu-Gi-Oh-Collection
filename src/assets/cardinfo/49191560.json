@@ -1,0 +1,46 @@
+{
+	"data": [
+		{
+			"id": 49191560,
+			"name": "Charioteer of Prophecy",
+			"typeline": ["Spellcaster", "Effect"],
+			"type": "Effect Monster",
+			"humanReadableCardType": "Effect Monster",
+			"frameType": "effect",
+			"desc": "Once per turn: You can discard 1 \"Spellbook\" Spell Card to target 1 Spellcaster-Type monster in your Graveyard; add that target to your hand.",
+			"race": "Spellcaster",
+			"atk": 1800,
+			"def": 1300,
+			"level": 4,
+			"attribute": "WIND",
+			"archetype": "Spellbook",
+			"ygoprodeck_url": "https://ygoprodeck.com/card/charioteer-of-prophecy-4194",
+			"card_sets": [
+				{
+					"set_name": "Return of the Duelist",
+					"set_code": "REDU-EN019",
+					"set_rarity": "Common",
+					"set_rarity_code": "(C)",
+					"set_price": "0"
+				}
+			],
+			"card_images": [
+				{
+					"id": 49191560,
+					"image_url": "https://images.ygoprodeck.com/images/cards/49191560.jpg",
+					"image_url_small": "https://images.ygoprodeck.com/images/cards_small/49191560.jpg",
+					"image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/49191560.jpg"
+				}
+			],
+			"card_prices": [
+				{
+					"cardmarket_price": "0.10",
+					"tcgplayer_price": "0.19",
+					"ebay_price": "0.99",
+					"amazon_price": "0.20",
+					"coolstuffinc_price": "0.49"
+				}
+			]
+		}
+	]
+}

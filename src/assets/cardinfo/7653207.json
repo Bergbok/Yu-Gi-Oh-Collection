@@ -1,0 +1,47 @@
+{
+	"data": [
+		{
+			"id": 7653207,
+			"name": "Aqua Jet",
+			"type": "Spell Card",
+			"humanReadableCardType": "Normal Spell",
+			"frameType": "spell",
+			"desc": "Target 1 face-up Fish, Sea Serpent, or Aqua-Type monster you control; it gains 1000 ATK.",
+			"race": "Normal",
+			"ygoprodeck_url": "https://ygoprodeck.com/card/aqua-jet-658",
+			"card_sets": [
+				{
+					"set_name": "Generation Force",
+					"set_code": "GENF-EN048",
+					"set_rarity": "Common",
+					"set_rarity_code": "(C)",
+					"set_price": "0"
+				},
+				{
+					"set_name": "Realm of the Sea Emperor Structure Deck",
+					"set_code": "SDRE-EN027",
+					"set_rarity": "Common",
+					"set_rarity_code": "(C)",
+					"set_price": "1.26"
+				}
+			],
+			"card_images": [
+				{
+					"id": 7653207,
+					"image_url": "https://images.ygoprodeck.com/images/cards/7653207.jpg",
+					"image_url_small": "https://images.ygoprodeck.com/images/cards_small/7653207.jpg",
+					"image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/7653207.jpg"
+				}
+			],
+			"card_prices": [
+				{
+					"cardmarket_price": "0.17",
+					"tcgplayer_price": "0.27",
+					"ebay_price": "1.50",
+					"amazon_price": "0.20",
+					"coolstuffinc_price": "0.25"
+				}
+			]
+		}
+	]
+}

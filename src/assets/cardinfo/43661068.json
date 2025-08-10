@@ -1,0 +1,54 @@
+{
+	"data": [
+		{
+			"id": 43661068,
+			"name": "Star Light, Star Bright",
+			"type": "Spell Card",
+			"humanReadableCardType": "Normal Spell",
+			"frameType": "spell",
+			"desc": "Target 1 face-up monster you control; all face-up monsters you currently control with an ATK or DEF equal to that monster's become the same Level as that monster, until the End Phase.",
+			"race": "Normal",
+			"ygoprodeck_url": "https://ygoprodeck.com/card/star-light-star-bright-3724",
+			"card_sets": [
+				{
+					"set_name": "Order of Chaos",
+					"set_code": "ORCS-EN052",
+					"set_rarity": "Common",
+					"set_rarity_code": "(C)",
+					"set_price": "0"
+				},
+				{
+					"set_name": "Star Pack 2014",
+					"set_code": "SP14-EN034",
+					"set_rarity": "Common",
+					"set_rarity_code": "(C)",
+					"set_price": "0"
+				},
+				{
+					"set_name": "Star Pack 2014",
+					"set_code": "SP14-EN034",
+					"set_rarity": "Starfoil Rare",
+					"set_rarity_code": "(SFR)",
+					"set_price": "0"
+				}
+			],
+			"card_images": [
+				{
+					"id": 43661068,
+					"image_url": "https://images.ygoprodeck.com/images/cards/43661068.jpg",
+					"image_url_small": "https://images.ygoprodeck.com/images/cards_small/43661068.jpg",
+					"image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/43661068.jpg"
+				}
+			],
+			"card_prices": [
+				{
+					"cardmarket_price": "0.04",
+					"tcgplayer_price": "0.11",
+					"ebay_price": "0.99",
+					"amazon_price": "0.25",
+					"coolstuffinc_price": "0.25"
+				}
+			]
+		}
+	]
+}

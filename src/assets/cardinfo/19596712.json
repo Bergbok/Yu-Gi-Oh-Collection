@@ -1,0 +1,41 @@
+{
+	"data": [
+		{
+			"id": 19596712,
+			"name": "Abyss-scale of Cetus",
+			"type": "Spell Card",
+			"humanReadableCardType": "Equip Spell",
+			"frameType": "spell",
+			"desc": "Equip only to a \"Mermail\" monster. It gains 800 ATK. When a Trap effect that was activated on your opponent's side of the field resolves, negate that effect, then send this card to the Graveyard.",
+			"race": "Equip",
+			"archetype": "Mermail",
+			"ygoprodeck_url": "https://ygoprodeck.com/card/abyss-scale-of-cetus-1687",
+			"card_sets": [
+				{
+					"set_name": "Cosmo Blazer",
+					"set_code": "CBLZ-EN061",
+					"set_rarity": "Common",
+					"set_rarity_code": "(C)",
+					"set_price": "0"
+				}
+			],
+			"card_images": [
+				{
+					"id": 19596712,
+					"image_url": "https://images.ygoprodeck.com/images/cards/19596712.jpg",
+					"image_url_small": "https://images.ygoprodeck.com/images/cards_small/19596712.jpg",
+					"image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/19596712.jpg"
+				}
+			],
+			"card_prices": [
+				{
+					"cardmarket_price": "0.14",
+					"tcgplayer_price": "0.19",
+					"ebay_price": "0.99",
+					"amazon_price": "0.20",
+					"coolstuffinc_price": "0.49"
+				}
+			]
+		}
+	]
+}

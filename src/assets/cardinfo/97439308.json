@@ -1,0 +1,55 @@
+{
+	"data": [
+		{
+			"id": 97439308,
+			"name": "Chaos Greed",
+			"type": "Spell Card",
+			"humanReadableCardType": "Normal Spell",
+			"frameType": "spell",
+			"desc": "You can only activate this card if 4 or more of your cards are currently removed from play and there are no cards in your Graveyard. Draw 2 cards from your Deck.",
+			"race": "Normal",
+			"archetype": "Greed",
+			"ygoprodeck_url": "https://ygoprodeck.com/card/chaos-greed-8102",
+			"card_sets": [
+				{
+					"set_name": "Dark Revelation Volume 2",
+					"set_code": "DR2-EN038",
+					"set_rarity": "Common",
+					"set_rarity_code": "(C)",
+					"set_price": "0"
+				},
+				{
+					"set_name": "Invasion of Chaos",
+					"set_code": "IOC-038",
+					"set_rarity": "Common",
+					"set_rarity_code": "(C)",
+					"set_price": "1.07"
+				},
+				{
+					"set_name": "Invasion of Chaos",
+					"set_code": "IOC-EN038",
+					"set_rarity": "Common",
+					"set_rarity_code": "(C)",
+					"set_price": "0"
+				}
+			],
+			"card_images": [
+				{
+					"id": 97439308,
+					"image_url": "https://images.ygoprodeck.com/images/cards/97439308.jpg",
+					"image_url_small": "https://images.ygoprodeck.com/images/cards_small/97439308.jpg",
+					"image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/97439308.jpg"
+				}
+			],
+			"card_prices": [
+				{
+					"cardmarket_price": "0.02",
+					"tcgplayer_price": "0.07",
+					"ebay_price": "1.00",
+					"amazon_price": "1.29",
+					"coolstuffinc_price": "0.25"
+				}
+			]
+		}
+	]
+}

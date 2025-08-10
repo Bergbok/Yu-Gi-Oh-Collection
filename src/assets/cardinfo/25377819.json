@@ -1,0 +1,48 @@
+{
+	"data": [
+		{
+			"id": 25377819,
+			"name": "Hieratic Seal of Convocation",
+			"type": "Spell Card",
+			"humanReadableCardType": "Normal Spell",
+			"frameType": "spell",
+			"desc": "Add 1 \"Hieratic\" monster from your Deck to your hand.",
+			"race": "Normal",
+			"archetype": "Hieratic",
+			"ygoprodeck_url": "https://ygoprodeck.com/card/hieratic-seal-of-convocation-2183",
+			"card_sets": [
+				{
+					"set_name": "Galactic Overlord",
+					"set_code": "GAOV-EN056",
+					"set_rarity": "Rare",
+					"set_rarity_code": "(R)",
+					"set_price": "0"
+				},
+				{
+					"set_name": "Ghosts From the Past",
+					"set_code": "GFTP-EN054",
+					"set_rarity": "Ultra Rare",
+					"set_rarity_code": "(UR)",
+					"set_price": "1.42"
+				}
+			],
+			"card_images": [
+				{
+					"id": 25377819,
+					"image_url": "https://images.ygoprodeck.com/images/cards/25377819.jpg",
+					"image_url_small": "https://images.ygoprodeck.com/images/cards_small/25377819.jpg",
+					"image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/25377819.jpg"
+				}
+			],
+			"card_prices": [
+				{
+					"cardmarket_price": "0.30",
+					"tcgplayer_price": "0.29",
+					"ebay_price": "0.99",
+					"amazon_price": "1.00",
+					"coolstuffinc_price": "0.39"
+				}
+			]
+		}
+	]
+}

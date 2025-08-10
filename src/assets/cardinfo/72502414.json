@@ -1,0 +1,46 @@
+{
+	"data": [
+		{
+			"id": 72502414,
+			"name": "Xyz Agent",
+			"typeline": ["Spellcaster", "Effect"],
+			"type": "Effect Monster",
+			"humanReadableCardType": "Effect Monster",
+			"frameType": "effect",
+			"desc": "If this card is in your Graveyard: You can target 1 \"Utopia\" Xyz Monster you control; attach this card from the Graveyard to it as an Xyz Material. You can only use the effect of \"Xyz Agent\" once per Duel.",
+			"race": "Spellcaster",
+			"atk": 900,
+			"def": 300,
+			"level": 2,
+			"attribute": "LIGHT",
+			"archetype": "Utopia",
+			"ygoprodeck_url": "https://ygoprodeck.com/card/xyz-agent-6086",
+			"card_sets": [
+				{
+					"set_name": "Judgment of the Light",
+					"set_code": "JOTL-EN005",
+					"set_rarity": "Common",
+					"set_rarity_code": "(C)",
+					"set_price": "0"
+				}
+			],
+			"card_images": [
+				{
+					"id": 72502414,
+					"image_url": "https://images.ygoprodeck.com/images/cards/72502414.jpg",
+					"image_url_small": "https://images.ygoprodeck.com/images/cards_small/72502414.jpg",
+					"image_url_cropped": "https://images.ygoprodeck.com/images/cards_cropped/72502414.jpg"
+				}
+			],
+			"card_prices": [
+				{
+					"cardmarket_price": "0.10",
+					"tcgplayer_price": "0.08",
+					"ebay_price": "0.99",
+					"amazon_price": "0.25",
+					"coolstuffinc_price": "0.49"
+				}
+			]
+		}
+	]
+}
