@@ -1,0 +1,5 @@
+/.astro/
+/.wrangler/
+/artifacts/
+/node_modules/
+/dist/
