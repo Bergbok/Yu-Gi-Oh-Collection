@@ -95,10 +95,17 @@ function updateCollectionValue() {
 			if (price > 0) prices.push(price);
 		});
 
+		if (prices.length === 0) return;
+
+		if (prices.length === 1) {
+			valueUSD += currency(prices[0]).multiply(cardCount).value;
+			return;
+		}
+
 		let filteredPrices = prices.filter(price => {
 			const otherPrices = prices.filter(p => p !== price);
-			const sumOfOthers = otherPrices.reduce((sum, p) => sum + p, 0);
-			return price <= sumOfOthers;
+			const avgOfOthers = otherPrices.reduce((sum, p) => sum + p, 0) / otherPrices.length;
+			return price <= avgOfOthers * 3;
 		});
 
 		if (filteredPrices.length === 0) filteredPrices = [Math.min(...prices)];
