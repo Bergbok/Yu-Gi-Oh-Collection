@@ -230,8 +230,9 @@ document.addEventListener('keydown', (e) => {
 	align-items: center;
 	backdrop-filter: blur(4px);
 	background-color: #000000BF;
+	box-sizing: border-box;
 	display: none;
-	height: 100dvh;
+	height: 100vh;
 	justify-content: center;
 	left: 0;
 	padding: 1rem;
@@ -239,7 +240,10 @@ document.addEventListener('keydown', (e) => {
 	top: 0;
 	width: 100%;
 	z-index: 1000;
-	box-sizing: border-box;
+
+	& * {
+		text-shadow: 1px 1px #757575BB;
+	}
 
 	& .next,
 	& .previous {
@@ -291,13 +295,14 @@ document.addEventListener('keydown', (e) => {
 		display: grid;
 		gap: 1rem;
 		grid-template-columns: minmax(300px, 1fr) minmax(300px, 2fr);
-		max-width: min(80rem, calc(100vw - 8rem));
+		margin: 0 auto;
+		max-height: min(80rem, calc(100vh - 9rem));
+		max-width: min(80rem, calc(100vw - 3rem));
 		outline: 0.5rem solid #00000050;
-		overflow: hidden;
+		overflow-y: scroll;
 		padding: 1rem;
 		position: relative;
 		width: 100%;
-		margin: 0 auto;
 
 		&.effect { background-color: #FF8D54; }
 		&.fusion { background-color: #A086B7; }
@@ -313,6 +318,13 @@ document.addEventListener('keydown', (e) => {
 			display: flex;
 			justify-content: center;
 			min-width: 0;
+
+			& img {
+				aspect-ratio: 1 / 1;
+				height: auto;
+				object-fit: contain;
+				width: min(100%, 100vh);
+			}
 		}
 
 		& .column-2 {
@@ -412,16 +424,19 @@ document.addEventListener('keydown', (e) => {
 			& .card-meta {
 				align-items: stretch;
 				border-bottom: 1px solid #ffffff49;
-				display: grid;
+				display: flex;
+				flex-wrap: wrap;
 				gap: 0.75rem;
-				grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+				justify-content: space-between;
 				margin-bottom: 1rem;
 				padding-bottom: 1rem;
 
 				& .meta-item {
-					text-align: center;
 					display: flex;
 					flex-direction: column;
+					flex: 1 1 100px;
+					min-width: 100px;
+					text-align: center;
 
 					& .meta-header {
 						color: #FFFFFF;
@@ -453,12 +468,15 @@ document.addEventListener('keydown', (e) => {
 			}
 
 			& .card-prices {
-				display: grid;
+				display: flex;
+				flex-wrap: wrap;
 				gap: 0.75rem;
-				grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+				justify-content: space-between;
 				margin-bottom: 1rem;
 
 				& .price-item {
+					flex: 1 1 100px;
+					min-width: 100px;
 					text-align: center;
 
 					& .price-header {
@@ -596,6 +614,16 @@ document.addEventListener('keydown', (e) => {
 			grid-template-columns: 1fr;
 			max-width: calc(100vw - 4rem);
 			padding: 0.75rem;
+
+			& .column-1 {
+				margin: auto;
+				max-width: 30%;
+				padding-bottom: 2rem;
+
+				& img {
+					max-width: 200px;
+				}
+			}
 		}
 	}
 }

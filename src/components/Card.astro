@@ -112,13 +112,28 @@ function updateOverlayPrices(overlay: HTMLElement, cardElement: HTMLElement) {
 	});
 }
 
+function handleOverlayLayout(overlay?: HTMLElement) {
+	const targetOverlay = overlay || document.querySelector('div.card-overlay[style*="flex"]') as HTMLElement;
+	if (!targetOverlay) return;
+
+	const cardArea = targetOverlay.querySelector('.card-area') as HTMLElement;
+	const column1 = cardArea.querySelector('.column-1') as HTMLElement;
+	const column2 = cardArea.querySelector('.column-2') as HTMLElement;
+
+	if (window.innerWidth <= 768) {
+		column2.querySelector('.card-meta')?.before(column1);
+	} else {
+		column2.before(column1);
+	}
+}
+
 document.querySelectorAll('.card').forEach((el) => {
 	const cardElement = el as HTMLElement;
 	cardElement.addEventListener('click', () => {
 		const overlay = document.querySelector(`.card-overlay[data-card-number="${cardElement.dataset.cardNumber}"]`) as HTMLElement;
 
-		// Update overlay prices before showing
 		updateOverlayPrices(overlay, cardElement);
+		handleOverlayLayout(overlay);
 
 		overlay.querySelector('button')?.focus();
 		cardElement.classList.add('glowing');
@@ -126,6 +141,8 @@ document.querySelectorAll('.card').forEach((el) => {
 		overlay.style.display = 'flex';
 	});
 });
+
+window.addEventListener('resize', () => handleOverlayLayout());
 </script>
 
 <style>
