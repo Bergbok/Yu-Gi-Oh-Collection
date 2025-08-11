@@ -1,12 +1,12 @@
 ---
-import { Picture } from 'astro:assets';
+import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 
 interface Props {
-    alt: string;
+	alt: string;
 	loading?: 'eager' | 'lazy';
-    password: number;
-    type: 'full' | 'cropped';
+	password: number;
+	type: 'full' | 'cropped';
 }
 
 const { alt, password, type, loading = 'lazy' } = Astro.props;
@@ -29,15 +29,14 @@ https://docs.astro.build/en/recipes/dynamically-importing-images
 ---
 
 {imageImport && (
-    <Picture
-		formats={['avif', 'webp']}
+	<Image
+		alt={alt}
+		class={type === 'full' ? 'full-card-image' : 'cropped-card-image'}
+		height={type === 'full' ? 1185 : 624}
 		loading={loading}
-        alt={alt}
-        class={type === 'full' ? 'full-card-image' : 'cropped-card-image'}
-        height={type === 'full' ? 1185 : 624}
-        src={imageImport()}
-        width={type === 'full' ? 815 : 624}
-    />
+		src={imageImport()}
+		width={type === 'full' ? 815 : 624}
+	/>
 )}
 
 <style>
