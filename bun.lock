@@ -4,7 +4,7 @@
     "": {
       "name": "yu-gi-oh-card-collection",
       "devDependencies": {
-        "@fawazahmed0/currency-api": "^2025.8.9",
+        "@fawazahmed0/currency-api": "^2025.8.11",
         "@types/bun": "^1.2.19",
         "astro": "^5.12.9",
         "autoprefixer": "^10.4.21",
@@ -110,7 +110,7 @@
 
     "@esbuild/win32-x64": ["@esbuild/win32-x64@0.25.8", "", { "os": "win32", "cpu": "x64" }, "sha512-cn3Yr7+OaaZq1c+2pe+8yxC8E144SReCQjN6/2ynubzYjvyqZjTXfQJpAcQpsdJq3My7XADANiYGHoFC69pLQw=="],
 
-    "@fawazahmed0/currency-api": ["@fawazahmed0/currency-api@2025.8.10", "", {}, "sha512-okOt09u/6aMNlcejY5hiHDXVPVIAsUPyHna/7lnqA97uersS9QcQe/1wPdb4UL/Wqvw/tRhz3XTfp31st08h7A=="],
+    "@fawazahmed0/currency-api": ["@fawazahmed0/currency-api@2025.8.11", "", {}, "sha512-cDOmCSBSfx1ikkSqZDMFLZl7HzjKJ68tn6+e3WVQNkmcN7+fDpehUtihH+pNoFsHisea/dq6Nm3pfuOqrJ5low=="],
 
     "@img/sharp-darwin-arm64": ["@img/sharp-darwin-arm64@0.33.5", "", { "optionalDependencies": { "@img/sharp-libvips-darwin-arm64": "1.0.4" }, "os": "darwin", "cpu": "arm64" }, "sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ=="],
 

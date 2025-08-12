@@ -20,7 +20,7 @@
 		"preview": "astro build && wrangler dev"
 	},
 	"devDependencies": {
-		"@fawazahmed0/currency-api": "^2025.8.9",
+		"@fawazahmed0/currency-api": "^2025.8.11",
 		"@types/bun": "^1.2.19",
 		"astro": "^5.12.9",
 		"autoprefixer": "^10.4.21",
