@@ -587,6 +587,7 @@ document.addEventListener('keydown', (e) => {
 
 @media (max-width: 768px) {
 	.card-overlay {
+		align-items: flex-start;
 		padding: 0.5rem;
 
 		& .next,
@@ -612,6 +613,8 @@ document.addEventListener('keydown', (e) => {
 		& .card-area {
 			gap: 0.5rem;
 			grid-template-columns: 1fr;
+			min-height: 69vh;
+			margin-top: 1rem;
 			max-width: calc(100vw - 4rem);
 			padding: 0.75rem;
 
