@@ -32,7 +32,7 @@ for JSON_FILE in $JSON_FILES; do
 		echo "Downloading full image for $card_password..."
 		temp_file=$(mktemp)
 		curl -fsSL "$image_url" -o "$temp_file"
-		ffmpeg -y -i "$temp_file" "$OUTPUT_DIR/full/$card_password.avif" &> /dev/null
+		ffmpeg -y -i "$temp_file" -c:v libaom-av1 -crf 21 "$OUTPUT_DIR/full/$card_password.avif" &> /dev/null
 		rm -f "$temp_file"
 	fi
 
