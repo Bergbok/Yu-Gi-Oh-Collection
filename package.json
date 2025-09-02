@@ -24,13 +24,13 @@
 		"@types/bun": "^1.2.19",
 		"astro": "^5.13.5",
 		"autoprefixer": "^10.4.21",
-		"cssnano": "^7.1.0",
+		"cssnano": "^7.1.1",
 		"csv-parse": "^6.1.0",
 		"currency-symbol-map": "^5.1.0",
 		"currency.js": "^2.0.4",
 		"postcss-nested": "^7.0.2",
 		"prettier": "^3.6.2",
 		"typescript": "^5.9.2",
-		"wrangler": "^4.28.1"
+		"wrangler": "^4.32.0"
 	}
 }
