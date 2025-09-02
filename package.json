@@ -22,7 +22,7 @@
 	"devDependencies": {
 		"@fawazahmed0/currency-api": "^2025.8.9",
 		"@types/bun": "^1.2.19",
-		"astro": "^5.12.9",
+		"astro": "^5.13.3",
 		"autoprefixer": "^10.4.21",
 		"cssnano": "^7.1.0",
 		"csv-parse": "^6.1.0",
