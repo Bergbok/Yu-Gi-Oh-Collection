@@ -21,7 +21,7 @@
 	},
 	"devDependencies": {
 		"@fawazahmed0/currency-api": "^2025.8.9",
-		"@types/bun": "^1.2.19",
+		"@types/bun": "^1.2.21",
 		"astro": "^5.13.5",
 		"autoprefixer": "^10.4.21",
 		"cssnano": "^7.1.1",
