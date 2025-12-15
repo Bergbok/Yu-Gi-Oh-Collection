@@ -51,7 +51,7 @@ jobs:
             sparse-checkout-cone-mode: false
 
         - name: Download dist artifact
-          uses: actions/download-artifact@v6.0.0
+          uses: actions/download-artifact@v7.0.0
           with:
             name: dist
             path: dist
