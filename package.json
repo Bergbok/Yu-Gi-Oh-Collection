@@ -29,7 +29,7 @@
 		"currency-symbol-map": "^5.1.0",
 		"currency.js": "^2.0.4",
 		"postcss-nested": "^7.0.2",
-		"prettier": "^3.8.0",
+		"prettier": "^3.8.1",
 		"typescript": "^5.9.3",
 		"wrangler": "^4.59.2"
 	}
