@@ -28,8 +28,9 @@ jobs:
         run: |
           bun install --frozen-lockfile
           bun update @fawazahmed0/currency-api
+          bunx update-browserslist-db@latest
 
-      - name: Update Node 
+      - name: Update Node
         uses: actions/setup-node@v6.3.0
         with:
           node-version: '>=22.12.0'
