@@ -501,7 +501,7 @@ const exchangeRates = defineCollection({
 	schema: z.object({
 		id: z.string(),
 		date: z.string(),
-		usd: z.record(z.number())
+		usd: z.record(z.string(), z.number().finite())
 	})
 });
 
