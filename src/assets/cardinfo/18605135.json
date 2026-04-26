@@ -85,8 +85,8 @@
 			],
 			"card_prices": [
 				{
-					"cardmarket_price": "0.12",
-					"tcgplayer_price": "0.01",
+					"cardmarket_price": "0.05",
+					"tcgplayer_price": "0.10",
 					"ebay_price": "1.99",
 					"amazon_price": "3.72",
 					"coolstuffinc_price": "0.39"

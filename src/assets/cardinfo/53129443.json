@@ -26,6 +26,13 @@
 					"set_price": "0"
 				},
 				{
+					"set_name": "2025 Mega-Pack Tin",
+					"set_code": "MP25-EN130",
+					"set_rarity": "Prismatic Secret Rare",
+					"set_rarity_code": "(PScR)",
+					"set_price": "0"
+				},
+				{
 					"set_name": "Battles of Legend: Monstrous Revenge",
 					"set_code": "BLMR-EN086",
 					"set_rarity": "Quarter Century Secret Rare",
@@ -303,8 +310,8 @@
 			],
 			"card_prices": [
 				{
-					"cardmarket_price": "0.02",
-					"tcgplayer_price": "0.18",
+					"cardmarket_price": "0.08",
+					"tcgplayer_price": "0.19",
 					"ebay_price": "2.94",
 					"amazon_price": "0.94",
 					"coolstuffinc_price": "0.49"

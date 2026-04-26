@@ -144,6 +144,20 @@
 					"set_price": "0"
 				},
 				{
+					"set_name": "Rarity Collection 5",
+					"set_code": "RA05-EN149",
+					"set_rarity": "Starlight Rare",
+					"set_rarity_code": "(StR)",
+					"set_price": "0"
+				},
+				{
+					"set_name": "Rarity Collection 5",
+					"set_code": "RA05-EN149",
+					"set_rarity": "Ultra Rare",
+					"set_rarity_code": "(UR)",
+					"set_price": "0"
+				},
+				{
 					"set_name": "Speed Duel GX: Duelists of Shadows",
 					"set_code": "SGX3-ENA17",
 					"set_rarity": "Common",
@@ -163,6 +177,13 @@
 					"set_rarity": "Common",
 					"set_rarity_code": "(C)",
 					"set_price": "6.27"
+				},
+				{
+					"set_name": "THE CHRONICLES DECK: The Fallen & The Virtuous (All-Foil Edition)",
+					"set_code": "CH01-EN033",
+					"set_rarity": "Ultra Rare",
+					"set_rarity_code": "(UR)",
+					"set_price": "0"
 				}
 			],
 			"banlist_info": { "ban_ocg": "Semi-Limited" },
@@ -176,8 +197,8 @@
 			],
 			"card_prices": [
 				{
-					"cardmarket_price": "0.02",
-					"tcgplayer_price": "2.50",
+					"cardmarket_price": "1.15",
+					"tcgplayer_price": "1.47",
 					"ebay_price": "4.99",
 					"amazon_price": "7.60",
 					"coolstuffinc_price": "3.99"

@@ -200,6 +200,13 @@
 					"set_price": "25.7"
 				},
 				{
+					"set_name": "Legendary 5D&apos;s Decks",
+					"set_code": "L5DD-ENC17",
+					"set_rarity": "Common",
+					"set_rarity_code": "(C)",
+					"set_price": "0"
+				},
+				{
 					"set_name": "Legendary Collection 3: Yugi's World Mega Pack",
 					"set_code": "LCYW-EN062",
 					"set_rarity": "Secret Rare",
@@ -256,11 +263,32 @@
 					"set_price": "0"
 				},
 				{
+					"set_name": "OTS Tournament Pack 29",
+					"set_code": "OP29-EN021",
+					"set_rarity": "Common",
+					"set_rarity_code": "(C)",
+					"set_price": "0"
+				},
+				{
 					"set_name": "Premium Gold",
 					"set_code": "PGLD-EN079",
 					"set_rarity": "Gold Rare",
 					"set_rarity_code": "(GUR)",
 					"set_price": "4.2"
+				},
+				{
+					"set_name": "Rarity Collection 5",
+					"set_code": "RA05-EN112",
+					"set_rarity": "Starlight Rare",
+					"set_rarity_code": "(StR)",
+					"set_price": "0"
+				},
+				{
+					"set_name": "Rarity Collection 5",
+					"set_code": "RA05-EN112",
+					"set_rarity": "Ultra Rare",
+					"set_rarity_code": "(UR)",
+					"set_price": "0"
 				},
 				{
 					"set_name": "Retro Pack",
@@ -484,8 +512,8 @@
 			],
 			"card_prices": [
 				{
-					"cardmarket_price": "0.10",
-					"tcgplayer_price": "0.19",
+					"cardmarket_price": "0.02",
+					"tcgplayer_price": "0.23",
 					"ebay_price": "1.99",
 					"amazon_price": "1.59",
 					"coolstuffinc_price": "0.39"

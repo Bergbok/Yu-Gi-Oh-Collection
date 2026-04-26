@@ -11,6 +11,13 @@
 			"ygoprodeck_url": "https://ygoprodeck.com/card/generation-force-7351",
 			"card_sets": [
 				{
+					"set_name": "OTS Tournament Pack 30",
+					"set_code": "OP30-EN019",
+					"set_rarity": "Common",
+					"set_rarity_code": "(C)",
+					"set_price": "0"
+				},
+				{
 					"set_name": "Return of the Duelist",
 					"set_code": "REDU-EN063",
 					"set_rarity": "Common",
@@ -28,8 +35,8 @@
 			],
 			"card_prices": [
 				{
-					"cardmarket_price": "0.55",
-					"tcgplayer_price": "0.25",
+					"cardmarket_price": "0.02",
+					"tcgplayer_price": "0.16",
 					"ebay_price": "3.11",
 					"amazon_price": "20.99",
 					"coolstuffinc_price": "1.99"

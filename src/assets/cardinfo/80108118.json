@@ -31,6 +31,13 @@
 					"set_price": "0"
 				},
 				{
+					"set_name": "Legendary Modern Decks 2026",
+					"set_code": "L26D-ENX30",
+					"set_rarity": "Common",
+					"set_rarity_code": "(C)",
+					"set_price": "0"
+				},
+				{
 					"set_name": "Starter Deck: Duelist Toolbox",
 					"set_code": "5DS3-EN040",
 					"set_rarity": "Common",
@@ -55,8 +62,8 @@
 			],
 			"card_prices": [
 				{
-					"cardmarket_price": "0.39",
-					"tcgplayer_price": "0.31",
+					"cardmarket_price": "0.08",
+					"tcgplayer_price": "0.16",
 					"ebay_price": "9.00",
 					"amazon_price": "0.60",
 					"coolstuffinc_price": "0.39"

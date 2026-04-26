@@ -24,6 +24,13 @@
 					"set_price": "0"
 				},
 				{
+					"set_name": "Justice Hunters",
+					"set_code": "JUSH-EN056",
+					"set_rarity": "Super Rare",
+					"set_rarity_code": "(SR)",
+					"set_price": "0"
+				},
+				{
 					"set_name": "Primal Origin",
 					"set_code": "PRIO-EN044",
 					"set_rarity": "Super Rare",
@@ -48,8 +55,8 @@
 			],
 			"card_prices": [
 				{
-					"cardmarket_price": "4.00",
-					"tcgplayer_price": "4.90",
+					"cardmarket_price": "0.02",
+					"tcgplayer_price": "0.17",
 					"ebay_price": "6.21",
 					"amazon_price": "2.89",
 					"coolstuffinc_price": "0.49"

@@ -45,6 +45,13 @@
 					"set_price": "0"
 				},
 				{
+					"set_name": "Legendary Modern Decks 2026",
+					"set_code": "L26D-ENX01",
+					"set_rarity": "Common",
+					"set_rarity_code": "(C)",
+					"set_price": "0"
+				},
+				{
 					"set_name": "Master of Pendulum Structure Deck",
 					"set_code": "SDMP-EN022",
 					"set_rarity": "Common",
@@ -83,8 +90,8 @@
 			],
 			"card_prices": [
 				{
-					"cardmarket_price": "0.27",
-					"tcgplayer_price": "0.57",
+					"cardmarket_price": "0.09",
+					"tcgplayer_price": "0.17",
 					"ebay_price": "2.99",
 					"amazon_price": "3.48",
 					"coolstuffinc_price": "0.49"

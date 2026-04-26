@@ -17,6 +17,13 @@
 			"ygoprodeck_url": "https://ygoprodeck.com/card/junk-synchron-5399",
 			"card_sets": [
 				{
+					"set_name": "2025 Mega-Pack Tin",
+					"set_code": "MP25-EN269",
+					"set_rarity": "Ultra Rare",
+					"set_rarity_code": "(UR)",
+					"set_price": "0"
+				},
+				{
 					"set_name": "Duel Terminal 3",
 					"set_code": "DT03-EN003",
 					"set_rarity": "Duel Terminal Rare Parallel Rare",
@@ -125,8 +132,8 @@
 			],
 			"card_prices": [
 				{
-					"cardmarket_price": "0.13",
-					"tcgplayer_price": "0.39",
+					"cardmarket_price": "0.08",
+					"tcgplayer_price": "0.12",
 					"ebay_price": "9.00",
 					"amazon_price": "7.99",
 					"coolstuffinc_price": "0.49"

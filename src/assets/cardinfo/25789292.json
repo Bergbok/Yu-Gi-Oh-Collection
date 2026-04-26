@@ -61,6 +61,13 @@
 					"set_price": "3.06"
 				},
 				{
+					"set_name": "Legendary 5D&apos;s Decks",
+					"set_code": "L5DD-ENC20",
+					"set_rarity": "Common",
+					"set_rarity_code": "(C)",
+					"set_price": "0"
+				},
+				{
 					"set_name": "Legendary Hero Decks",
 					"set_code": "LEHD-ENB16",
 					"set_rarity": "Common",
@@ -124,6 +131,20 @@
 					"set_price": "0"
 				},
 				{
+					"set_name": "Rarity Collection 5",
+					"set_code": "RA05-EN115",
+					"set_rarity": "Starlight Rare",
+					"set_rarity_code": "(StR)",
+					"set_price": "0"
+				},
+				{
+					"set_name": "Rarity Collection 5",
+					"set_code": "RA05-EN115",
+					"set_rarity": "Ultra Rare",
+					"set_rarity_code": "(UR)",
+					"set_price": "0"
+				},
+				{
 					"set_name": "Structure Deck: Powercode Link",
 					"set_code": "SDPL-EN024",
 					"set_rarity": "Common",
@@ -148,8 +169,8 @@
 			],
 			"card_prices": [
 				{
-					"cardmarket_price": "0.31",
-					"tcgplayer_price": "0.24",
+					"cardmarket_price": "0.02",
+					"tcgplayer_price": "0.20",
 					"ebay_price": "2.19",
 					"amazon_price": "2.27",
 					"coolstuffinc_price": "0.49"

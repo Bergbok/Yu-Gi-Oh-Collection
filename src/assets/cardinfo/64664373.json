@@ -11,6 +11,13 @@
 			"ygoprodeck_url": "https://ygoprodeck.com/card/metaltronus-14310",
 			"card_sets": [
 				{
+					"set_name": "2025 Mega-Pack Tin",
+					"set_code": "MP25-EN075",
+					"set_rarity": "Prismatic Secret Rare",
+					"set_rarity_code": "(PScR)",
+					"set_price": "0"
+				},
+				{
 					"set_name": "Legacy of Destruction",
 					"set_code": "LEDE-EN069",
 					"set_rarity": "Super Rare",
@@ -77,8 +84,8 @@
 			],
 			"card_prices": [
 				{
-					"cardmarket_price": "0.22",
-					"tcgplayer_price": "0.24",
+					"cardmarket_price": "0.11",
+					"tcgplayer_price": "0.20",
 					"ebay_price": "0.00",
 					"amazon_price": "0.00",
 					"coolstuffinc_price": "0.00"

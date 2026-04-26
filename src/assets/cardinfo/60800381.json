@@ -52,6 +52,13 @@
 					"set_price": "0"
 				},
 				{
+					"set_name": "Legendary 5D&apos;s Decks",
+					"set_code": "L5DD-ENY34",
+					"set_rarity": "Common",
+					"set_rarity_code": "(C)",
+					"set_price": "0"
+				},
+				{
 					"set_name": "Legendary Collection 5D's Mega Pack",
 					"set_code": "LC5D-EN029",
 					"set_rarity": "Super Rare",
@@ -97,8 +104,8 @@
 			],
 			"card_prices": [
 				{
-					"cardmarket_price": "0.15",
-					"tcgplayer_price": "0.46",
+					"cardmarket_price": "0.14",
+					"tcgplayer_price": "0.15",
 					"ebay_price": "14.66",
 					"amazon_price": "3.98",
 					"coolstuffinc_price": "0.79"

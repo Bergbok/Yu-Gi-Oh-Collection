@@ -12,6 +12,13 @@
 			"ygoprodeck_url": "https://ygoprodeck.com/card/pot-of-greed-4698",
 			"card_sets": [
 				{
+					"set_name": "2025 Mega-Pack Tin",
+					"set_code": "MP25-EN050",
+					"set_rarity": "Starlight Rare",
+					"set_rarity_code": "(StR)",
+					"set_price": "0"
+				},
+				{
 					"set_name": "Battle Pack 2: War of the Giants",
 					"set_code": "BP02-EN129",
 					"set_rarity": "Mosaic Rare",
@@ -168,7 +175,7 @@
 			"card_prices": [
 				{
 					"cardmarket_price": "0.15",
-					"tcgplayer_price": "2.97",
+					"tcgplayer_price": "4.05",
 					"ebay_price": "4.95",
 					"amazon_price": "6.18",
 					"coolstuffinc_price": "3.99"

@@ -16,6 +16,13 @@
 			"ygoprodeck_url": "https://ygoprodeck.com/card/overlay-booster-6327",
 			"card_sets": [
 				{
+					"set_name": "Justice Hunters",
+					"set_code": "JUSH-EN042",
+					"set_rarity": "Rare",
+					"set_rarity_code": "(R)",
+					"set_price": "0"
+				},
+				{
 					"set_name": "Legacy of the Valiant",
 					"set_code": "LVAL-EN006",
 					"set_rarity": "Common",
@@ -33,8 +40,8 @@
 			],
 			"card_prices": [
 				{
-					"cardmarket_price": "0.07",
-					"tcgplayer_price": "0.29",
+					"cardmarket_price": "0.02",
+					"tcgplayer_price": "0.07",
 					"ebay_price": "0.99",
 					"amazon_price": "0.25",
 					"coolstuffinc_price": "0.25"
