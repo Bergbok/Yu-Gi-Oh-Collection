@@ -16,10 +16,11 @@
 		"cf-typegen": "wrangler types",
 		"deploy": "astro build && wrangler deploy",
 		"dev": "astro dev",
-		"prettier": "prettier --write **/*.{json,ts}",
+		"prettier": "prettier --write **/*.{astro,json,ts}",
 		"preview": "astro build && wrangler dev"
 	},
 	"devDependencies": {
+		"@bergbok/prettier-config": "^1.1.0",
 		"@fawazahmed0/currency-api": "^2025.8.9",
 		"@types/bun": "^1.3.12",
 		"astro": "^6.1.8",
