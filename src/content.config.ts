@@ -1,6 +1,7 @@
+import { z } from 'astro/zod';
 import { readFileSync } from 'fs';
 import { parse } from 'csv-parse/sync';
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
 import { file } from 'astro/loaders';
 import type { Country } from './types/exchange-rate';
 import type {
