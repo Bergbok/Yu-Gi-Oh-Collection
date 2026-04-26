@@ -11,7 +11,6 @@ export interface Country {
 	currency_number: string;
 }
 
-
 export interface ExchangeRates {
 	date: string;
 	usd: {
